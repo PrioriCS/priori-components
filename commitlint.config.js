@@ -8,7 +8,7 @@ module.exports = {
       'always',
       ['BUILD', 'CHORE', 'CI', 'DOCS', 'FEAT', 'FIX', 'PERF', 'REFACTOR', 'REVERT', 'STYLE', 'TEST', 'MERGE_CONFLICT'],
     ],
-    'scope-empty': [2, 'always'],
+    'scope-empty': [2, 'never'],
     'subject-case': [0],
     'subject-empty': [2, 'never'],
   },

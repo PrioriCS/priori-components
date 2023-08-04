@@ -58,7 +58,7 @@ module.exports = {
   ],
   messages: {
     type: 'Select the type of change you are making:',
-    customScope: 'Enter the scope of this change:',
+    scope: 'Enter the scope of this change:',
     subject: 'Title of this change:',
     body: 'Enter a more detailed description (optional):',
     confirmCommit: 'Are you sure you want to commit this commit? (y/n)',
