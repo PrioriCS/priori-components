@@ -18,18 +18,8 @@ module.exports = {
     'import/resolver': {
       alias: {
         map: [['@', './resources']],
-        extensions: ['.js'],
+        extensions: ['.js', '.jsx'],
         caseSensitive: false,
-      },
-      vite: {
-        alias: {
-          entries: [
-            {
-              find: '@',
-              replacement: '/resources',
-            },
-          ],
-        },
       },
     },
     react: {
@@ -41,9 +31,12 @@ module.exports = {
     globalThis: 'writable',
     parametrized: 'writable',
   },
-  plugins: ['import'],
+  plugins: ['react', 'import'],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'import/extensions': 'off',
+    'react/prop-types': 'off',
+    'react/display-name': 'off',
     'import/no-unresolved': 'off',
   },
 };
