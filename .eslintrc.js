@@ -5,7 +5,14 @@ module.exports = {
     jest: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'prettier', 'eslint-config-prettier'],
+  extends: [
+    'plugin:react/recommended',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+    'plugin:import/react',
+    'prettier',
+    'eslint-config-prettier',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',

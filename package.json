@@ -47,6 +47,8 @@
     "autoprefixer": "10.4.5"
   },
   "dependencies": {
-    "cz-customizable": "^7.0.0"
+    "cz-customizable": "^7.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

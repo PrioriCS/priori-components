@@ -10,13 +10,7 @@ delete colors['blueGray'];
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: [
-    './storage/framework/views/*.php',
-    './resources/views/**/*.blade.php',
-    './resources/js/**/*.jsx',
-    './resources/js/*.js',
-    './tests/js/*.js',
-  ],
+  content: ['./resources/js/**/*.jsx', './resources/js/*.js', './tests/js/*.js'],
 
   theme: {
     extend: {
