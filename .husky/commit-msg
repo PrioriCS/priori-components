@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# exec < /dev/tty && node_modules/.bin/cz --hook || true -> Força a usar um padrão já estabelecido ao dar git commit
-npx --no -- commitlint --edit ${1}
-
