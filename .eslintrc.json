@@ -4,7 +4,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "eslint:recommended"],
+  "extends": ["plugin:react/recommended", "eslint:recommended"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
