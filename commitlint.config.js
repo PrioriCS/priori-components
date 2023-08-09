@@ -1,13 +1,13 @@
 module.exports = {
   formatter: '@commitlint/format',
-  parserPreset: './parser.commit.js',
   rules: {
     'scope-case': [2, 'always', ['upper-case']],
     'scope-empty': [2, 'always'],
-    'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
+    'subject-case': [0, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
     'subject-empty': [0, 'never'],
+    'type-empty': [2, 'never'],
     'type-case': [2, 'always', 'upper-case'],
-    'type-enum': [2, 'always', ['build', 'chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test']],
+    'type-enum': [2, 'always', ['BUILD', 'CHORE', 'CI', 'DOCS', 'FEAT', 'FIX', 'PERF', 'REFACTOR', 'REVERT', 'STYLE', 'TEST']],
   },
   prompt: {
     messages: {
