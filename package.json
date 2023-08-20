@@ -32,14 +32,17 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files && npx tailwindcss -i ./src/css/input.css -o ./public/output.css",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "test:debug": "ndb jest",
     "eject": "react-scripts eject",
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags && rm -rf build/temp",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "lint": "eslint ./resources/js/**/*.{js,jsx} --fix"
+    "lint": "eslint ./resources/js/**/*.{js,jsx,tsx} --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -73,6 +76,7 @@
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "husky": "^8.0.3",
+    "jest": "^27.5.1",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.1",
     "tailwindcss": "^3.3.3"
