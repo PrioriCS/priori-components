@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/js/*", "src/lib/tests/*"]
+    }
+  },
+  "exclude": ["node_modules", "public"]
+}

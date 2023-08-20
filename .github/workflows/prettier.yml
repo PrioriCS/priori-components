@@ -1,4 +1,4 @@
-name: Prettier
+name: Continues Integration
 
 on:
   pull_request:
@@ -20,3 +20,19 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write **/*.{js,jsx,tsx,md}
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16, 18]
+    name: Node ${{ matrix.node }} sample
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Jest
+        run: |
+          npm i
+          npm test -- --passWithNoTests
+      - name: Eslint
+        run: npm run lint
