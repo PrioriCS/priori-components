@@ -1,3 +1,3 @@
-import Bold from "./components/Bold";
+import Bold from './components/Bold';
 
 export { Bold };

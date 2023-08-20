@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.default = Bold;
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireDefault(require('react'));
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -26,12 +26,12 @@ function _extends() {
 }
 function Bold(props) {
   return /*#__PURE__*/ _react.default.createElement(
-    "span",
+    'span',
     _extends(
       {
-        className: "font-bold",
+        className: 'font-bold',
       },
-      props,
-    ),
+      props
+    )
   );
 }
