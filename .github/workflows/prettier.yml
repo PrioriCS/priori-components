@@ -19,7 +19,8 @@ jobs:
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --write **/*.{js,jsx,tsx,md}
+          prettier_options: --write **/*.{js,json,jsx,tsx,md}
+          commit_message: 'FIX: Prettier fixed code'
   check:
     runs-on: ubuntu-latest
     strategy:
