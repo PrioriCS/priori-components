@@ -42,7 +42,7 @@
     "postversion": "git push && git push --tags && rm -rf build/temp",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "lint": "eslint ./resources/js/**/*.{js,jsx,tsx} --fix"
+    "lint": "eslint ./src/**/*.{js,jsx,tsx} --fix"
   },
   "eslintConfig": {
     "extends": [
