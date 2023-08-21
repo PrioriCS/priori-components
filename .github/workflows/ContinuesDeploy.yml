@@ -13,13 +13,6 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - uses: actions/checkout@v3
-      - name: update package version
-        run: |
-          git config --global user.name ${{ github.event.pull_request.user.login }}
-          git config --global user.email ${{ github.event.pull_request.user.email }}
-          git commit -am "FIX: Package Updated"
-          git push
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
