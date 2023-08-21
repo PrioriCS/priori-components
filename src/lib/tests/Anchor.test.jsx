@@ -2,7 +2,7 @@ import React from 'react';
 
 import { expect, test } from '@jest/globals';
 import { create } from 'react-test-renderer';
-import { Anchor } from 'prioricomponents';
+import Anchor from '../components/Anchor';
 
 describe('Create a AccordionMenu Component', () => {
   test('check anchor children', () => {
