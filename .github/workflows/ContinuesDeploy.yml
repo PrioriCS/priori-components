@@ -21,7 +21,6 @@ jobs:
           cache: 'npm'
       - name: npm install dependencies
         run: npm ci
-        
       - name: Reconfigure git to use HTTP authentication
         run: >
           git config --global url."https://my-user:${{ secrets.USER_TOKEN }}@github.com/".insteadOf
