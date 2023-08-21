@@ -23,7 +23,7 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write **/*.{js,json,jsx,tsx,md}
-          commit_message: 'FIX: Prettier fixed code'
+          commit_message: 'FIX: Prettier runned'
   check:
     runs-on: ubuntu-latest
     strategy:
