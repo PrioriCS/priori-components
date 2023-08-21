@@ -37,6 +37,6 @@ jobs:
       - name: Jest
         run: |
           npm i
-          npm test -- --passWithNoTests
+          npm test
       - name: Eslint
         run: npm run lint
