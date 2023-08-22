@@ -26,3 +26,5 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: 'cat package.json'
+        run: cat ./package.json
