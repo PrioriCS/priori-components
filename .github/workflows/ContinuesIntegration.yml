@@ -49,6 +49,9 @@ jobs:
     needs: prettier
 
     steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: '16.x'
       - run: npm run build
 
   bump-version:
