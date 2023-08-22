@@ -12,9 +12,6 @@
     "type": "git",
     "url": "git+https://github.com/PrioriCS/priori-components.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
