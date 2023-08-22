@@ -46,7 +46,7 @@ jobs:
   bump-version:
     name: 'Update Package Version'
     runs-on: ubuntu-latest
-    needs: prettier
+    needs: build
 
     steps:
       - name: 'Checkout source code'
