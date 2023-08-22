@@ -12,6 +12,16 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+      - name: 'cat package.json'
+        run: cat ./package.json
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v1'
+        with:
+          node-version: 12
+      - name: 'Automated Version Bump'
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          tag-prefix: ''
       - run: npm ci
       - run: npm publish
         env:
