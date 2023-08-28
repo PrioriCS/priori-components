@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Row from '@/Components/Row';
+import { Row } from '../components/Row';
 
 describe('Row Test', () => {
   test('Render Row Empty', () => {
