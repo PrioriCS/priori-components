@@ -21,6 +21,9 @@ jobs:
       - name: Pull code
         run: git pull
 
+      - name: Build
+        run: npm run build
+
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
         with:
