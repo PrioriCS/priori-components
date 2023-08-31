@@ -10,7 +10,7 @@
 
 # production
 /build
-/dist/tests
+dist
 
 # misc
 .DS_Store
