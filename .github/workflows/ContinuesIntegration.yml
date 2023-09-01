@@ -39,6 +39,7 @@ jobs:
       - name: Jest
         run: |
           npm i
+          npm run build
           npm test
       - name: Eslint
         run: npm run lint
@@ -49,10 +50,10 @@ jobs:
     needs: prettier
 
     steps:
-      - name: Install Dependencies
-        run: npm install
       - name: Build
-        run: npm run build
+        run: |
+          npm i
+          npm run build
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
         with:
