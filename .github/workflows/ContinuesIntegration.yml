@@ -21,9 +21,6 @@ jobs:
       - name: Pull code
         run: git pull
 
-      - name: Build
-        run: npm run build
-
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
         with:
@@ -52,6 +49,8 @@ jobs:
     needs: prettier
 
     steps:
+      - name: Build
+        run: npm run build
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
         with:
@@ -62,8 +61,6 @@ jobs:
         uses: 'actions/setup-node@v1'
         with:
           node-version: 12
-      - name: Build
-        run: npm run build
       - name: 'Automated Version Bump'
         uses: 'phips28/gh-action-bump-version@master'
         with:
