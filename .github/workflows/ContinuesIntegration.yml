@@ -62,6 +62,8 @@ jobs:
         uses: 'actions/setup-node@v1'
         with:
           node-version: 12
+      - name: Build
+        run: npm run build
       - name: 'Automated Version Bump'
         uses: 'phips28/gh-action-bump-version@master'
         with:
