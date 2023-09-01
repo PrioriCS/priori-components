@@ -50,10 +50,6 @@ jobs:
     needs: prettier
 
     steps:
-      - name: Build
-        run: |
-          npm i
-          npm run build
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
         with:
