@@ -49,6 +49,8 @@ jobs:
     needs: prettier
 
     steps:
+      - name: Install Dependencies
+        run: npm install
       - name: Build
         run: npm run build
       - name: 'Checkout source code'
