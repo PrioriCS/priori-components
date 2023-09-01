@@ -7,5 +7,6 @@ import Label from './components/Label';
 import Labeled from './components/Labeled';
 import ToggleSwitchButton from './components/ToggleSwitchButton';
 import Status from './components/Status';
+import SelectSection from './components/SelectSection';
 
-export { Bold, Anchor, HelpItem, ButtonWrapper, Row, Label, Labeled, ToggleSwitchButton, Status };
+export { Bold, Anchor, HelpItem, ButtonWrapper, Row, Label, Labeled, ToggleSwitchButton, Status, SelectSection };
