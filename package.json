@@ -6,17 +6,11 @@
   "module": "dist/index.js",
   "style": "dist/output.css",
   "files": [
-    "*.md",
     "dist",
-    "lib",
-    "es"
+    "README.md"
   ],
   "sideEffects": [
     "**/*.css"
-  ],
-  "files": [
-    "dist",
-    "README.md"
   ],
   "repository": {
     "type": "git",
@@ -79,6 +73,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^14.4.3",
+    "autoprefixer": "^10.4.15",
     "babel-jest": "^29.6.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.46.0",
