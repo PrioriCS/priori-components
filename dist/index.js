@@ -33,6 +33,12 @@ Object.defineProperty(exports, "HelpItem", {
     return _HelpItem.default;
   }
 });
+Object.defineProperty(exports, "IconButton", {
+  enumerable: true,
+  get: function get() {
+    return _IconButton.default;
+  }
+});
 Object.defineProperty(exports, "Label", {
   enumerable: true,
   get: function get() {
@@ -43,6 +49,12 @@ Object.defineProperty(exports, "Labeled", {
   enumerable: true,
   get: function get() {
     return _Labeled.default;
+  }
+});
+Object.defineProperty(exports, "LinkButton", {
+  enumerable: true,
+  get: function get() {
+    return _LinkButton.default;
   }
 });
 Object.defineProperty(exports, "Row", {
@@ -80,4 +92,6 @@ var _ToggleSwitchButton = _interopRequireDefault(require("./components/ToggleSwi
 var _Status = _interopRequireDefault(require("./components/Status"));
 var _SelectSection = _interopRequireDefault(require("./components/SelectSection"));
 var _Button = _interopRequireDefault(require("./components/Button"));
+var _LinkButton = _interopRequireDefault(require("./components/LinkButton"));
+var _IconButton = _interopRequireDefault(require("./components/IconButton"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
