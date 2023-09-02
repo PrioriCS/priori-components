@@ -1,9 +1,19 @@
 {
   "name": "prioricomponents",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "style": "dist/output.css",
+  "files": [
+    "*.md",
+    "dist",
+    "lib",
+    "es"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist",
     "README.md"
