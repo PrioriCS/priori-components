@@ -17,6 +17,8 @@ module.exports = {
     './src/lib/**/*.jsx',
     './src/lib/tests/*.jsx',
     './src/lib/components/*.jsx',
+    './dist/**/*.js',
+    './dist/components/*.js',
   ],
   theme: {
     extend: {
