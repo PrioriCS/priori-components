@@ -19,10 +19,12 @@ jobs:
         uses: 'actions/setup-node@v1'
         with:
           node-version: 12
+          token: ${{ secrets.GH_TOKEN }}
       - name: 'Automated Version Bump'
         uses: 'phips28/gh-action-bump-version@master'
         with:
           tag-prefix: ''
+          token: ${{ secrets.GH_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: 'cat package.json'
