@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = ToggleSwitchButton;
 var _react = _interopRequireDefault(require("react"));
-var _tailwindMerge = require("tailwind-merge");
 var _jsxRuntime = require("react/jsx-runtime");
 var _excluded = ["active"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -26,7 +25,7 @@ function ToggleSwitchButton(_ref) {
     "data-testid": "toggle-switch"
   }, rest), {}, {
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-      className: (0, _tailwindMerge.twMerge)('absolute cursor-pointer top-0 left-0 right-0 bottom-0 rounded-full transition-all before:absolute before:content=[""] before:h-3 before:w-3 before:left-0.5 before:bottom-0.5 before:bg-white before:rounded-full before:transition-all', active ? 'before:translate-x-4 bg-sky-500' : 'bg-gray-400')
+      className: "absolute cursor-pointer top-0 left-0 right-0 bottom-0 rounded-full transition-all before:absolute before:content=[\"\"] before:h-3 before:w-3 before:left-0.5 before:bottom-0.5 before:bg-white before:rounded-full before:transition-all ".concat(active ? 'before:translate-x-4 bg-sky-500' : 'bg-gray-400')
     })
   }));
 }

@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = IconButton;
 var _react = _interopRequireDefault(require("react"));
-var _tailwindMerge = require("tailwind-merge");
 var _jsxRuntime = require("react/jsx-runtime");
 var _excluded = ["icon", "small", "base", "className", "bgColor", "borderColor", "radius"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -41,7 +40,7 @@ function IconButton(_ref) {
   };
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("button", _objectSpread(_objectSpread({
     type: "button",
-    className: (0, _tailwindMerge.twMerge)(availableBackgroundColors[bgColor], avaliableBordersColors[borderColor], className, availableBordersRadius[radius], 'p-1 h-fit')
+    className: "".concat(availableBackgroundColors[bgColor], " ").concat(avaliableBordersColors[borderColor], " ").concat(className, " ").concat(availableBordersRadius[radius], " p-1 h-fit")
   }, rest), {}, {
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)(Icon, {
       className: "".concat(small ? 'text-sm' : base ? 'text-base' : 'text-lg'),

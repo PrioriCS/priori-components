@@ -1,5 +1,4 @@
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
 export default function IconButton({
   icon: Icon,
@@ -29,7 +28,7 @@ export default function IconButton({
   return (
     <button
       type='button'
-      className={twMerge(availableBackgroundColors[bgColor], avaliableBordersColors[borderColor],  className,availableBordersRadius[radius], 'p-1 h-fit')}
+      className={`${availableBackgroundColors[bgColor]} ${avaliableBordersColors[borderColor]} ${className} ${availableBordersRadius[radius]} p-1 h-fit`}
       {...rest}>
       <Icon className={`${small ? 'text-sm' : base ? 'text-base' : 'text-lg'}`} data-testid='icon' />
     </button>
