@@ -1,6 +1,6 @@
 {
   "name": "prioricomponents",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,7 +37,7 @@
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files && npx tailwindcss -i ./src/css/input.css -o ./dist/output.css",
     "test": "jest",
-    "tailwid": "npx tailwindcss -i ./src/css/input.css -o ./dist/output.css --watch",
+    "tailwind": "npx tailwindcss -i ./src/css/input.css -o ./dist/output.css --watch",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test:debug": "ndb jest",

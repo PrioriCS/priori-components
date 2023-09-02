@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function App() {
-  return <div>Teste</div>;
+  return <div className='bg-primary-900'>Teste</div>;
 }
