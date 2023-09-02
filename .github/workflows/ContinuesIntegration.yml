@@ -43,18 +43,10 @@ jobs:
           npm test
       - name: Eslint
         run: npm run lint
-  build:
-    name: 'Build Package'
-    runs-on: ubuntu-latest
-    needs: prettier
-
-    steps:
-      - name: 'Build'
-        run: npm run build
   bump-version:
     name: 'Update Package Version'
     runs-on: ubuntu-latest
-    needs: build
+    needs: prettier
 
     steps:
       - name: 'Checkout source code'
