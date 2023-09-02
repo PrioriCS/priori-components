@@ -24,7 +24,7 @@ jobs:
         with:
           tag-prefix: ''
         env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: 'cat package.json'
         run: cat ./package.json
   publish:
