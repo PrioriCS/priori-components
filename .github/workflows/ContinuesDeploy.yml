@@ -13,8 +13,6 @@ jobs:
         uses: 'actions/checkout@v2'
         with:
           ref: ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: 'cat package.json'
         run: cat ./package.json
       - name: 'Setup Node.js'
@@ -26,7 +24,7 @@ jobs:
         with:
           tag-prefix: ''
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
       - name: 'cat package.json'
         run: cat ./package.json
   publish:
