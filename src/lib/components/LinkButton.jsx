@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { Inertia, shouldIntercept } from '@inertiajs/inertia';
-import { Button } from '..';
+
 import { noop } from 'lodash';
+import { Button } from '..';
 
 export default function LinkButton({
   href,
