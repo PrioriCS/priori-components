@@ -21,7 +21,7 @@ function ToggleSwitchButton(_ref) {
     } = _ref,
     rest = _objectWithoutProperties(_ref, _excluded);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", _objectSpread(_objectSpread({
-    className: "w-8 h-4 flex items-center p-1 relative rounded-full",
+    className: "w-8 h-4 flex items-center p-1 relative rounded-full group",
     "data-testid": "toggle-switch"
   }, rest), {}, {
     children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {

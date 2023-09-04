@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = LinkButton;
 var _react = _interopRequireDefault(require("react"));
 var _inertia = require("@inertiajs/inertia");
-var _ = require("..");
 var _lodash = require("lodash");
+var _ = require("..");
 var _jsxRuntime = require("react/jsx-runtime");
 var _excluded = ["href", "onClick", "preserveScroll", "preserveState", "replace", "only", "component", "className", "disabled"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
