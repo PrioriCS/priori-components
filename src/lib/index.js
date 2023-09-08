@@ -12,6 +12,7 @@ import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
 import Panel from './components/Panel';
+import Title from './components/Title';
 
 export {
   Bold,
@@ -28,4 +29,5 @@ export {
   LinkButton,
   IconButton,
   Panel,
+  Title,
 };
