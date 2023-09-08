@@ -11,6 +11,7 @@ import SelectSection from './components/SelectSection';
 import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
+import RequiredAlert from './components/RequiredAlert';
 
 export {
   Bold,
@@ -26,4 +27,5 @@ export {
   Button,
   LinkButton,
   IconButton,
+  RequiredAlert,
 };
