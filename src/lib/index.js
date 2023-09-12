@@ -11,6 +11,7 @@ import SelectSection from './components/SelectSection';
 import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
+import LoadingSpinner from './components/LoadingSpinner';
 import RequiredAlert from './components/RequiredAlert';
 import ApplicationLogo from './components/ApplicationLogo';
 
@@ -28,6 +29,7 @@ export {
   Button,
   LinkButton,
   IconButton,
+  LoadingSpinner,
   RequiredAlert,
   ApplicationLogo,
 };
