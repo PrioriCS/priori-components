@@ -85,10 +85,9 @@ function Input({
   return (
     <div
       className={twMerge(
-        'flex flex-1 flex-col',
+        'flex flex-1 flex-col relative',
         disabled ? 'cursor-not-allowed' : '',
-        alignLeft ? 'items-start' : 'items-center',
-        relative
+        alignLeft ? 'items-start' : 'items-center'
       )}>
       <InputComponent {...inputProps} />
 
