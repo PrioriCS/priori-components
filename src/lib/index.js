@@ -11,6 +11,7 @@ import SelectSection from './components/SelectSection';
 import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
+import ApplicationLogo from './components/ApplicationLogo';
 
 export {
   Bold,
@@ -26,4 +27,6 @@ export {
   Button,
   LinkButton,
   IconButton,
+  ApplicationLogo,
 };
+ 
