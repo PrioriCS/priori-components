@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect, test } from '@jest/globals';
-import { create, act } from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import RequiredAlert from '../components/RequiredAlert';
 import { MdAnnouncement, MdError } from 'react-icons/md';
 
