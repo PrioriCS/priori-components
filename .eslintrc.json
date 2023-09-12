@@ -20,7 +20,8 @@
     "react/prop-types": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "semi": ["error", "always"],
-    "no-func-assign": "off"
+    "no-func-assign": "off",
+    "react/display-name": "off"
   },
   "ignorePatterns": ["dist/"]
 }
