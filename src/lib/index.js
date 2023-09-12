@@ -12,6 +12,8 @@ import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
 import Input from './components/Input';
+import RequiredAlert from './components/RequiredAlert';
+import ApplicationLogo from './components/ApplicationLogo';
 
 export {
   Bold,
@@ -28,4 +30,6 @@ export {
   LinkButton,
   IconButton,
   Input,
+  RequiredAlert,
+  ApplicationLogo,
 };
