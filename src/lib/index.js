@@ -13,6 +13,9 @@ import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
 import Panel from './components/Panel';
 import Title from './components/Title';
+import LoadingSpinner from './components/LoadingSpinner';
+import RequiredAlert from './components/RequiredAlert';
+import ApplicationLogo from './components/ApplicationLogo';
 
 export {
   Bold,
@@ -30,4 +33,7 @@ export {
   IconButton,
   Panel,
   Title,
+  LoadingSpinner,
+  RequiredAlert,
+  ApplicationLogo,
 };
