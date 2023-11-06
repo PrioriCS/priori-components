@@ -17,6 +17,7 @@ import Title from './components/Title';
 import LoadingSpinner from './components/LoadingSpinner';
 import RequiredAlert from './components/RequiredAlert';
 import ApplicationLogo from './components/ApplicationLogo';
+import SelectCheckboxesButton from './components/SelectCheckboxesButton';
 
 export {
   Bold,
@@ -38,4 +39,5 @@ export {
   LoadingSpinner,
   RequiredAlert,
   ApplicationLogo,
+  SelectCheckboxesButton,
 };
