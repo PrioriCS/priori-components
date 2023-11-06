@@ -18,6 +18,7 @@ import LoadingSpinner from './components/LoadingSpinner';
 import RequiredAlert from './components/RequiredAlert';
 import ApplicationLogo from './components/ApplicationLogo';
 import PageButton from './components/PageButton';
+import TextArea from './components/TextArea';
 
 export {
   Bold,
@@ -39,5 +40,6 @@ export {
   LoadingSpinner,
   RequiredAlert,
   ApplicationLogo,
-  PageButton
+  PageButton,
+  TextArea,
 };
