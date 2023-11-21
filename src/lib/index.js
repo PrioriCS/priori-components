@@ -17,9 +17,8 @@ import Title from './components/Title';
 import LoadingSpinner from './components/LoadingSpinner';
 import RequiredAlert from './components/RequiredAlert';
 import ApplicationLogo from './components/ApplicationLogo';
-
+import ProgressBarPercentage from './components/ProgressBarPercentage';
 import ProgressBarValue from './components/ProgressBarValue';
-
 import NavLink from './components/NavLink';
 import PageButton from './components/PageButton';
 import TextArea from './components/TextArea';
@@ -44,6 +43,7 @@ export {
   LoadingSpinner,
   RequiredAlert,
   ApplicationLogo,
+  ProgressBarPercentage,
   ProgressBarValue,
   NavLink,
   PageButton,
