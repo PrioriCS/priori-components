@@ -1,6 +1,6 @@
 {
   "name": "prioricomponents",
-  "version": "0.7.30",
+  "version": "0.7.31",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
