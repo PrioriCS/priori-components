@@ -4,15 +4,11 @@ import EditableTableBody from './EditableTableBody';
 import EditableTableHead from './EditableTableHead';
 import TableToolbar from './TableToolbar';
 import Pagination from './Pagination';
-import { Inertia } from '@inertiajs/inertia';
-import { decorateOptions } from '@/notifications';
-import { toast } from 'react-toastify';
 
 export default function EditableTable({
   columns = [],
   data = [],
   setData = noop,
-  url,
   className,
   pagination,
   table = '',
@@ -29,7 +25,7 @@ export default function EditableTable({
   withoutPagination = false,
   withoutSearch = false,
   height = 'default',
-  errors = {},
+  route = noop,
 }) {
   function onSave() {
     let payload = { data: [] };
@@ -43,9 +39,7 @@ export default function EditableTable({
       payload.data.push(installation);
     });
 
-    let options = decorateOptions('tableDataUpdated', { onError: () => toast('failure', errors.toast) });
-
-    Inertia.post(route(url), payload, options);
+    route(payload);
 
     setEditing(false);
   }

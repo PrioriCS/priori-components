@@ -3,10 +3,10 @@ import { MdArrowDownward, MdArrowUpward, MdKeyboardArrowDown, MdOutlineSortByAlp
 import Dropdown from '../Dropdown';
 import { Label } from 'prioricomponents';
 import Checkbox from '../Input/Checkbox';
-import { display } from '@/lexicon';
-import update from 'immutability-helper';
+import { update } from '../../../immutability';
+import { noop } from 'lodash';
 
-function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = 'w-44' }) {
+function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = 'w-44', display = noop }) {
   return (
     <Dropdown className='-my-2'>
       <Dropdown.Trigger>
