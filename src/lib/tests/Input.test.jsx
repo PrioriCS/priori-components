@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../components/Input';
+import Input from '../components/Input/Input';
 import { expect, test } from '@jest/globals';
 import { create } from 'react-test-renderer';
 import { MdTerrain } from 'react-icons/md';

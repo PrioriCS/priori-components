@@ -11,7 +11,7 @@ import SelectSection from './components/SelectSection';
 import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
-import Input from './components/Input';
+import Input from './components/Input/Input';
 import Panel from './components/Panel';
 import Title from './components/Title';
 import LoadingSpinner from './components/LoadingSpinner';

@@ -1,4 +1,4 @@
-import Input from '@/Components/Input/Input';
+import Input from '../Input/Input';
 import { usePage } from '@inertiajs/inertia-react';
 import { noop } from 'lodash';
 import React from 'react';
