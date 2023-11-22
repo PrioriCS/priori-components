@@ -23,10 +23,17 @@
     ]
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "currency.js": "^2.0.4",
     "input-mask": "^1.1.20",
+    "moment": "^2.29.4",
+    "query-string": "^7.1.1",
+    "randomstring": "^1.2.2",
     "react-icons": "^4.10.1",
     "react-input-mask": "^2.0.4",
     "tailwind-merge": "^1.14.0",
+    "immutability-helper": "^3.1.1",
+
     "web-vitals": "^2.1.4"
   },
   "scripts": {

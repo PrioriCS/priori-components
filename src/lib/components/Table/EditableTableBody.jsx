@@ -1,7 +1,7 @@
-import { edit } from '@/immutability';
-import Input from '@/Components/Input/Input';
+import { edit } from '../../../utilities/immutability';
+import Input from '../Input/Input';
 import { isNil, noop } from 'lodash';
-import { generateInputMask, normalizeMoney } from '@/masks';
+import { generateInputMask, normalizeMoney } from '../../../utilities/masks';
 import InputSelect from '../Input/InputSelect';
 
 function handleChange(
