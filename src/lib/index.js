@@ -11,7 +11,7 @@ import SelectSection from './components/SelectSection';
 import Button from './components/Button';
 import LinkButton from './components/LinkButton';
 import IconButton from './components/IconButton';
-import Input from './components/Input';
+import Input from './components/Input/Input';
 import Panel from './components/Panel';
 import Title from './components/Title';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -23,7 +23,13 @@ import ProgressBarValue from './components/ProgressBarValue';
 import NavLink from './components/NavLink';
 import PageButton from './components/PageButton';
 import TextArea from './components/TextArea';
-
+import EditableTable from './components/Table/EditableTable';
+import EditableTableBody from './components/Table/EditableTableBody';
+import EditableTableHead from './components/Table/EditableTableHead';
+import Checkbox from './components/Input/Checkbox';
+import InputSelect from './components/Input/InputSelect';
+import Pagination from './components/Table/Pagination';
+import TableToolbar from './components/Table/TableToolbar';
 export {
   Bold,
   Anchor,
@@ -50,4 +56,11 @@ export {
   NavLink,
   PageButton,
   TextArea,
+  EditableTable,
+  EditableTableBody,
+  EditableTableHead,
+  Checkbox,
+  InputSelect,
+  Pagination,
+  TableToolbar,
 };
