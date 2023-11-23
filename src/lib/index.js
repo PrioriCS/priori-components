@@ -24,11 +24,8 @@ import NavLink from './components/NavLink';
 import PageButton from './components/PageButton';
 import TextArea from './components/TextArea';
 import EditableTable from './components/Table/EditableTable';
-import EditableTableBody from './components/Table/EditableTableBody';
-import EditableTableHead from './components/Table/EditableTableHead';
 import Checkbox from './components/Input/Checkbox';
 import InputSelect from './components/Input/InputSelect';
-import Pagination from './components/Table/Pagination';
 import TableToolbar from './components/Table/TableToolbar';
 export {
   Bold,
@@ -57,10 +54,7 @@ export {
   PageButton,
   TextArea,
   EditableTable,
-  EditableTableBody,
-  EditableTableHead,
   Checkbox,
   InputSelect,
-  Pagination,
   TableToolbar,
 };
