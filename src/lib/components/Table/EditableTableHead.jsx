@@ -4,7 +4,7 @@ import Checkbox from '../Input/Checkbox';
 import { noop, update } from 'lodash';
 import Label from '../Label';
 import React from 'react';
-import { toggleSort } from '@/lib/utilities/sort';
+import { toggleSort } from '../../utilities/sort';
 
 function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = 'w-44', display = noop }) {
   return (

@@ -1,5 +1,5 @@
-import { edit } from '@/lib/utilities/immutability';
-import { generateInputMask, normalizeMoney } from '@/lib/utilities/masks';
+import { edit } from '../../utilities/immutability';
+import { generateInputMask, normalizeMoney } from '../../utilities/masks';
 import { isNil, noop } from 'lodash';
 import React from 'react';
 import Input from '../Input/Input';
