@@ -1,4 +1,4 @@
-import { setCurrentPage } from '@/utilities/sort';
+import { setCurrentPage } from '@/lib/utilities/sort';
 import React from 'react';
 import { MdFirstPage, MdLastPage, MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import PageButton from '../PageButton';
