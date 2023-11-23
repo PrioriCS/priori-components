@@ -1,7 +1,7 @@
+import { setCurrentPage } from '@/utilities/sort';
 import React from 'react';
 import { MdFirstPage, MdLastPage, MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
-import PageButton from '../../components/PageButton';
-import { setCurrentPage } from '../../../utilities/sort';
+import PageButton from '../PageButton';
 
 export default function Pagination({ currentPage = 1, pages, table, canChangePage = true }) {
   const maxButtonPages = 5;
