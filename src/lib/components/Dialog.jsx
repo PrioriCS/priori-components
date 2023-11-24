@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, IconButton } from 'prioricomponents';
+
 import { MdArrowForwardIos, MdOutlineClose } from 'react-icons/md';
 import { noop } from 'lodash';
 import { twMerge } from 'tailwind-merge';
+import { Button, IconButton } from '..';
 
 export default function Dialog({
   visible,

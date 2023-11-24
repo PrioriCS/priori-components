@@ -1,8 +1,9 @@
 import { isEmpty } from 'lodash';
-import { ButtonWrapper } from 'prioricomponents';
+
 import React from 'react';
 import InputMask from 'react-input-mask';
 import { twMerge } from 'tailwind-merge';
+import ButtonWrapper from '../ButtonWrapper';
 
 function Input({
   type = 'text',

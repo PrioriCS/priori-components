@@ -1,7 +1,8 @@
-import { edit } from '../../../utilities/immutability';
-import Input from '../Input/Input';
+import { edit } from '../../utilities/immutability';
+import { generateInputMask, normalizeMoney } from '../../utilities/masks';
 import { isNil, noop } from 'lodash';
-import { generateInputMask, normalizeMoney } from '../../../utilities/masks';
+import React from 'react';
+import Input from '../Input/Input';
 import InputSelect from '../Input/InputSelect';
 
 function handleChange(

@@ -1,10 +1,10 @@
-import { toggleSort } from '../../../utilities/sort';
 import { MdArrowDownward, MdArrowUpward, MdKeyboardArrowDown, MdOutlineSortByAlpha, MdSwapVert } from 'react-icons/md';
 import Dropdown from '../Dropdown';
-import { Label } from 'prioricomponents';
 import Checkbox from '../Input/Checkbox';
-import { update } from '../../../utilities/immutability';
-import { noop } from 'lodash';
+import { noop, update } from 'lodash';
+import Label from '../Label';
+import React from 'react';
+import { toggleSort } from '../../utilities/sort';
 
 function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = 'w-44', display = noop }) {
   return (
