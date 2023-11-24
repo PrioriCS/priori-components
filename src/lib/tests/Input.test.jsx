@@ -3,7 +3,7 @@ import Input from '../components/Input/Input';
 import { expect, test } from '@jest/globals';
 import { create } from 'react-test-renderer';
 import { MdTerrain } from 'react-icons/md';
-import { ButtonWrapper } from 'prioricomponents';
+import { ButtonWrapper } from '..';
 
 describe('Input Component', () => {
   const component = create(
