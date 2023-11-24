@@ -4,8 +4,9 @@ import { noop } from 'lodash';
 import React from 'react';
 import { MdSave, MdSearch } from 'react-icons/md';
 import queryString from 'query-string';
-import { Button } from 'prioricomponents';
+
 import { twMerge } from 'tailwind-merge';
+import Button from '../Button';
 
 export default function TableToolbar({
   searchKey,

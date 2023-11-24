@@ -44,13 +44,18 @@ export default function Dialog({
 
   return (
     <div
-      className={`fixed top-0 z-[100] left-0 bottom:0 right:0 justify-center w-full bg-white-900 backdrop-blur-[3px] min-h-screen drop-shadow-[0_0_8px_rgba(0,0,0,0.3)] shadow-black-900 ${
-        visible ? 'flex' : 'hidden'
-      } ${height}`}>
+      className={twMerge(
+        'fixed top-0 z-[100] left-0 bottom:0 right:0 justify-center w-full bg-white-900 backdrop-blur-[3px] min-h-screen drop-shadow-[0_0_8px_rgba(0,0,0,0.3)] shadow-black-900',
+        visible ? 'flex' : 'hidden',
+        height
+      )}>
       <div
-        className={`absolute bg-white xl:p-8 p-3 flex flex-col ${availableWidths[width]} ${height} ${
+        className={twMerge(
+          'absolute bg-white xl:p-8 p-3 flex flex-col',
+          availableWidths[width],
+          height,
           center ? 'top-[50%] -translate-y-[50%] rounded-2xl ' : 'rounded-b-2xl '
-        }`}>
+        )}>
         <div className={twMerge(' justify-between border-b', withoutTitle ? 'hidden' : 'flex')}>
           <span className='sm:text-3xl text-xl font-medium text-primary-900 xl:pb-7 pb-2'>{title}</span>
           {closeButton && !withouCloseButton && <IconButton bgColor='white' icon={MdOutlineClose} onClick={onClose} />}

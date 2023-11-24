@@ -27,6 +27,7 @@ import EditableTable from './components/Table/EditableTable';
 import Checkbox from './components/Input/Checkbox';
 import InputSelect from './components/Input/InputSelect';
 import TableToolbar from './components/Table/TableToolbar';
+import Dialog from './components/Dialog';
 export {
   Bold,
   Anchor,
@@ -57,4 +58,5 @@ export {
   Checkbox,
   InputSelect,
   TableToolbar,
+  Dialog,
 };
