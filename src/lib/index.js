@@ -30,6 +30,7 @@ import Checkbox from './components/Input/Checkbox';
 import InputSelect from './components/Input/InputSelect';
 import Pagination from './components/Table/Pagination';
 import TableToolbar from './components/Table/TableToolbar';
+import Dialog from './components/Dialog';
 export {
   Bold,
   Anchor,
@@ -63,4 +64,5 @@ export {
   InputSelect,
   Pagination,
   TableToolbar,
+  Dialog,
 };
