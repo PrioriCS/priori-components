@@ -1,15 +1,15 @@
 import Input from '../Input/Input';
-import { usePage } from '@inertiajs/inertia-react';
+//import { usePage } from '@inertiajs/inertia-react';
 import { noop } from 'lodash';
 import React from 'react';
 import { MdSave, MdSearch } from 'react-icons/md';
-import queryString from 'query-string';
+//import queryString from 'query-string';
 
 import { twMerge } from 'tailwind-merge';
 import Button from '../Button';
 
 export default function TableToolbar({
-  searchKey,
+  //searchKey,
   onSearchChange = noop,
   children,
   background = 'slate',
@@ -27,12 +27,12 @@ export default function TableToolbar({
   paddingY = 'default',
   paddingBottom = 'none',
 }) {
-  const { url } = usePage();
-  const { query = {} } = queryString.parseUrl(url);
-  const [search, setSearch] = React.useState(query[searchKey] || '');
+  //const { url } = usePage();
+  //const { query = {} } = queryString.parseUrl(url);
+  //const [search, setSearch] = React.useState(query[searchKey] || '');
 
   function handleChange(event) {
-    setSearch(event.target.value);
+    //setSearch(event.target.value);
 
     onSearchChange(event.target.value);
   }
@@ -88,7 +88,7 @@ export default function TableToolbar({
       <div className={`flex w-full ${editable ? 'justify-between items-center' : 'justify-start'}`}>
         <div className={availableWidths[width]}>
           <Input
-            value={search}
+            //value={search}
             onChange={handleChange}
             name='search'
             placeholder={placeholder}
