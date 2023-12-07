@@ -8,7 +8,8 @@ import Pagination from './Pagination';
 export default function EditableTable({
   columns = [],
   data = [],
-  setData = noop,
+  primaryKey = 'id',
+  setChangedData = noop,
   className,
   pagination,
   table = '',
@@ -75,7 +76,13 @@ export default function EditableTable({
             sortColumn={sortColumn}
             setSortColumn={setSortColumn}
           />
-          <EditableTableBody columns={columns} data={data} setData={setData} setEditing={setEditing} />
+          <EditableTableBody
+            columns={columns}
+            data={data}
+            setEditing={setEditing}
+            setChangedData={setChangedData}
+            primaryKey={primaryKey}
+          />
         </table>
       </div>
 
