@@ -1,115 +1,95 @@
-import { edit } from '../../utilities/immutability';
-import { generateInputMask, normalizeMoney } from '../../utilities/masks';
-import { isNil, noop } from 'lodash';
-import React from 'react';
+import { isEmpty, isFunction, isNil, noop } from 'lodash';
 import Input from '../Input/Input';
 import InputSelect from '../Input/InputSelect';
+import { useState } from 'react';
+import { generateInputMask } from '../../utilities/masks';
 
-function handleChange(
-  e,
-  setData,
-  setEditing,
-  data,
-  i,
-  index,
-  key,
-  id,
-  isMoney,
-  especificCalc = noop,
-  constrainedId,
-  uppercase = false
-) {
-  setData((currentData) => {
-    return edit(data, i, {
-      id: id,
-      data: edit(currentData[i].data, index, {
-        value: isMoney
-          ? normalizeMoney(e.target.value)
-          : constrainedId
-          ? parseInt(e.target.value)
-          : uppercase
-          ? e.target.value.toUpperCase()
-          : e.target.value,
-        key: key,
-      }),
+export default function EditableTableBody({
+  columns = [],
+  data = [],
+  setEditing = noop,
+  setChangedData = noop,
+  primaryKey = 'id',
+}) {
+  const [tableData, setTableData] = useState(data);
+
+  const rowToObj = (row) => {
+    const obj = {};
+    row.data.forEach((cell) => {
+      obj[cell.key] = cell.value;
     });
-  });
+    return obj;
+  };
 
-  especificCalc(data, setData, key, i, id, e.target.value);
+  const handleEdit = (row, rowIndex, newData, key, dataTretement) => {
+    if (isFunction(dataTretement)) newData = dataTretement(newData);
+    setEditing(true);
+    const newRow = row;
+    const newDataArray = [...tableData];
 
-  setEditing(true);
-}
+    newRow.data.find((cell) => cell.key === key).value = newData;
+    newDataArray[rowIndex] = newRow;
 
-export default function EditableTableBody({ columns, data, setData, setEditing }) {
+    const newRowObj = rowToObj(newRow);
+    setChangedData((changedData) => [...changedData.filter((row) => row[primaryKey] !== newRowObj[primaryKey]), newRowObj]);
+
+    setTableData(newDataArray);
+  };
   return (
     <tbody className='font-normal text-base border-b border-gray-300 text-gray-500 w-full divide-y'>
-      {data.map((row, i) => {
+      {tableData.map((row, rowIndex) => {
         return (
-          <tr className='w-full divide-x text-sm' key={i}>
-            {row.data.map((cell, index) => {
-              return columns.map(({ component: Component }, column) => {
+          <tr className='w-full divide-x text-sm' key={rowIndex}>
+            {row?.data?.map((cell, cellIndex) => {
+              const {
+                component: Componet,
+                type,
+                key,
+                editable,
+                personalized,
+                extra,
+                options,
+                center,
+                mask,
+                maskChar,
+                dataTretement,
+              } = columns.find((column) => column.key === cell.key && column.visible);
+              if (!type) return <td className='p-2' key={cellIndex}></td>;
+              if (personalized)
+                return <Componet value={cell.value} id={cellIndex + ' ' + rowIndex} extra={extra} addicioalInfo={cell.link} />;
+              if (type === 'select') {
                 return (
-                  cell.key === columns[column].key &&
-                  columns[column].visible &&
-                  !columns[column].disabled && (
-                    <td key={columns[column].key} className='bg-white'>
-                      {columns[column].personalized ? (
-                        <Component value={cell.value} id={row.id} extra={columns[column].extra} addicioalInfo={cell.link} />
-                      ) : columns[column].type === 'select' ? (
-                        <InputSelect
-                          value={cell.value}
-                          key={row.id}
-                          center={columns[column].center}
-                          disabled={!columns[column].editable}
-                          onChange={(e) => {
-                            handleChange(
-                              e,
-                              setData,
-                              setEditing,
-                              data,
-                              i,
-                              index,
-                              cell.key,
-                              row.id,
-                              columns[column].money,
-                              columns[column].especificCalc,
-                              columns[column].constrainedId
-                            );
-                          }}
-                          options={columns[column].options}
-                        />
-                      ) : (
-                        <Input
-                          round='none'
-                          key={row.id}
-                          className={`py-4 w-full border-none text-sm ${columns[column].center ? 'text-center' : ''}`}
-                          type={columns[column].type}
-                          value={isNil(cell.value) ? '' : cell.value}
-                          readOnly={!columns[column].editable}
-                          mask={generateInputMask(columns[column].type, cell.value) || columns[column].mask}
-                          maskchar=' '
-                          onChange={(e) => {
-                            handleChange(
-                              e,
-                              setData,
-                              setEditing,
-                              data,
-                              i,
-                              index,
-                              cell.key,
-                              row.id,
-                              columns[column].money,
-                              columns[column].especificCalc,
-                              false,
-                              columns[column].uppercase
-                            );
-                          }}
-                        />
-                      )}
-                    </td>
-                  )
+                  <td className='p-2' key={cellIndex + ' ' + rowIndex}>
+                    <InputSelect
+                      value={cell.value}
+                      key={cellIndex + ' ' + rowIndex}
+                      center={center}
+                      disabled={!editable}
+                      options={options}
+                      onChange={(e) => {
+                        handleEdit(row, rowIndex, e.target.value, key, dataTretement);
+                      }}
+                    />
+                  </td>
                 );
-              });
+              }
+              return (
+                <td className='p-2' key={cellIndex + ' ' + rowIndex}>
+                  <Input
+                    round='none'
+                    key={cellIndex + ' ' + rowIndex}
+                    className={`py-4 w-full border-none text-sm ${center ? 'text-center' : ''}`}
+                    type={isEmpty(type) ? 'text' : type}
+                    value={isNil(cell.value) ? '' : cell.value}
+                    readOnly={!editable}
+                    mask={generateInputMask(type, cell.value) || mask}
+                    maskchar={maskChar ? maskChar : ' '}
+                    onChange={(e) => {
+                      handleEdit(row, rowIndex, e.target.value, key, dataTretement);
+                    }}
+                  />
+                </td>
+              );
             })}
           </tr>
         );

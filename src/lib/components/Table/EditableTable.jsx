@@ -1,46 +1,36 @@
 import { noop, isEmpty } from 'lodash';
-import React from 'react';
+import { useState } from 'react';
 import EditableTableBody from './EditableTableBody';
 import EditableTableHead from './EditableTableHead';
 import TableToolbar from './TableToolbar';
 import Pagination from './Pagination';
 
 export default function EditableTable({
-  columns = [],
-  data = [],
-  setData = noop,
   className,
   pagination,
-  table = '',
-  editing = false,
-  setEditing = noop,
-  sortDesc = false,
-  setSortDesc = noop,
-  sortColumn = '',
-  setSortColumn = noop,
-  onSearchChange = noop,
-  searchKey = 'query',
-  withoutScroll = false,
+  height = 'default',
+  columns = [],
+  data = [],
+  changedData = [],
   onToolbarRight = {},
+  primaryKey = 'id',
+  table = '',
+  sortDesc = false,
+  searchKey = 'query',
+  sortColumn = '',
+  withoutScroll = false,
   withoutPagination = false,
   withoutSearch = false,
-  height = 'default',
   route = noop,
+  setChangedData = noop,
+  setSortDesc = noop,
+  setSortColumn = noop,
+  onSearchChange = noop,
 }) {
+  const [editing, setEditing] = useState(false);
+
   function onSave() {
-    let payload = { data: [] };
-
-    data.forEach((d) => {
-      let installation = { id: d.id };
-
-      d.data.forEach((obj) => {
-        installation[obj.key] = obj.value;
-      });
-      payload.data.push(installation);
-    });
-
-    route(payload);
-
+    route(changedData);
     setEditing(false);
   }
 
@@ -75,7 +65,13 @@ export default function EditableTable({
             sortColumn={sortColumn}
             setSortColumn={setSortColumn}
           />
-          <EditableTableBody columns={columns} data={data} setData={setData} setEditing={setEditing} />
+          <EditableTableBody
+            columns={columns}
+            data={data}
+            setEditing={setEditing}
+            setChangedData={setChangedData}
+            primaryKey={primaryKey}
+          />
         </table>
       </div>
 
