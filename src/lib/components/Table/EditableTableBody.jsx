@@ -54,7 +54,14 @@ export default function EditableTableBody({
               } = columns.find((column) => column.key === cell.key && column.visible);
               if (!type) return <td className='p-2' key={cellIndex}></td>;
               if (personalized)
-                return <Componet value={cell.value} id={cellIndex + ' ' + rowIndex} extra={extra} addicioalInfo={cell.link} />;
+                return (
+                  <Componet
+                    value={cell.value}
+                    id={columns.find((column) => (column.key === primaryKey ? cell.value : ''))}
+                    extra={extra}
+                    addicioalInfo={cell.link}
+                  />
+                );
               if (type === 'select') {
                 return (
                   <td className='p-2' key={cellIndex + ' ' + rowIndex}>
