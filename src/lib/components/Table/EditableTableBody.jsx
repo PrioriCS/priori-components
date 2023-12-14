@@ -1,7 +1,7 @@
 import { isEmpty, isFunction, isNil, noop } from 'lodash';
 import Input from '../Input/Input';
 import InputSelect from '../Input/InputSelect';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { generateInputMask } from '../../utilities/masks';
 
 export default function EditableTableBody({
@@ -12,6 +12,9 @@ export default function EditableTableBody({
   primaryKey = 'id',
 }) {
   const [tableData, setTableData] = useState(data);
+  useEffect(() => {
+    setTableData(data)
+  }, [data])
 
   const rowToObj = (row) => {
     const obj = {};
