@@ -57,7 +57,7 @@ export default function EditableTableBody({
                 return (
                   <Componet
                     value={cell.value}
-                    id={columns.find((column) => (column.key === primaryKey ? cell.value : ''))}
+                    id={columns.find((column) => (column.key == primaryKey ? cell.value : ''))}
                     extra={extra}
                     addicioalInfo={cell.link}
                   />
