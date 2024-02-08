@@ -4,78 +4,99 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = EditableTableBody;
-var _immutability = require("../../utilities/immutability");
-var _masks = require("../../utilities/masks");
 var _lodash = require("lodash");
-var _react = _interopRequireDefault(require("react"));
 var _Input = _interopRequireDefault(require("../Input/Input"));
 var _InputSelect = _interopRequireDefault(require("../Input/InputSelect"));
+var _masks = require("../../utilities/masks");
 var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function handleChange(e, setData, setEditing, data, i, index, key, id, isMoney) {
-  var especificCalc = arguments.length > 9 && arguments[9] !== undefined ? arguments[9] : _lodash.noop;
-  var constrainedId = arguments.length > 10 ? arguments[10] : undefined;
-  var uppercase = arguments.length > 11 && arguments[11] !== undefined ? arguments[11] : false;
-  setData(currentData => {
-    return (0, _immutability.edit)(data, i, {
-      id: id,
-      data: (0, _immutability.edit)(currentData[i].data, index, {
-        value: isMoney ? (0, _masks.normalizeMoney)(e.target.value) : constrainedId ? parseInt(e.target.value) : uppercase ? e.target.value.toUpperCase() : e.target.value,
-        key: key
-      })
-    });
-  });
-  especificCalc(data, setData, key, i, id, e.target.value);
-  setEditing(true);
-}
 function EditableTableBody(_ref) {
   var {
-    columns,
-    data,
-    setData,
-    setEditing
+    columns = [],
+    data = [],
+    setData = _lodash.noop,
+    setEditing = _lodash.noop,
+    setChangedData = _lodash.noop,
+    primaryKey = 'id'
   } = _ref;
+  var rowToObj = row => {
+    var obj = {};
+    row.data.forEach(cell => {
+      obj[cell.key] = cell.value;
+    });
+    return obj;
+  };
+  var handleEdit = (row, rowIndex, newData, key, dataTretement) => {
+    if ((0, _lodash.isFunction)(dataTretement)) newData = dataTretement(newData);
+    setEditing(true);
+    var newRow = row;
+    var newDataArray = [...data];
+    newRow.data.find(cell => cell.key === key).value = newData;
+    newDataArray[rowIndex] = newRow;
+    var newRowObj = rowToObj(newRow);
+    setChangedData(changedData => [...changedData.filter(row => row[primaryKey] !== newRowObj[primaryKey]), newRowObj]);
+    setData(newDataArray);
+  };
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("tbody", {
     className: "font-normal text-base border-b border-gray-300 text-gray-500 w-full divide-y",
-    children: data.map((row, i) => {
+    children: data.map((row, rowIndex) => {
+      var _row$data;
       return /*#__PURE__*/(0, _jsxRuntime.jsx)("tr", {
         className: "w-full divide-x text-sm",
-        children: row.data.map((cell, index) => {
-          return columns.map((_ref2, column) => {
-            var {
-              component: Component
-            } = _ref2;
-            return cell.key === columns[column].key && columns[column].visible && !columns[column].disabled && /*#__PURE__*/(0, _jsxRuntime.jsx)("td", {
-              className: "bg-white",
-              children: columns[column].personalized ? /*#__PURE__*/(0, _jsxRuntime.jsx)(Component, {
-                value: cell.value,
-                id: row.id,
-                extra: columns[column].extra,
-                addicioalInfo: cell.link
-              }) : columns[column].type === 'select' ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputSelect.default, {
-                value: cell.value,
-                center: columns[column].center,
-                disabled: !columns[column].editable,
-                onChange: e => {
-                  handleChange(e, setData, setEditing, data, i, index, cell.key, row.id, columns[column].money, columns[column].especificCalc, columns[column].constrainedId);
-                },
-                options: columns[column].options
-              }, row.id) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_Input.default, {
-                round: "none",
-                className: "py-4 w-full border-none text-sm ".concat(columns[column].center ? 'text-center' : ''),
-                type: columns[column].type,
-                value: (0, _lodash.isNil)(cell.value) ? '' : cell.value,
-                readOnly: !columns[column].editable,
-                mask: (0, _masks.generateInputMask)(columns[column].type, cell.value) || columns[column].mask,
-                maskchar: " ",
-                onChange: e => {
-                  handleChange(e, setData, setEditing, data, i, index, cell.key, row.id, columns[column].money, columns[column].especificCalc, false, columns[column].uppercase);
-                }
-              }, row.id)
-            }, columns[column].key);
+        children: row === null || row === void 0 || (_row$data = row.data) === null || _row$data === void 0 ? void 0 : _row$data.map((cell, cellIndex) => {
+          var {
+            component: Componet,
+            type,
+            key,
+            editable,
+            personalized,
+            extra,
+            options,
+            center,
+            mask,
+            maskChar,
+            dataTretement
+          } = columns.find(column => column.key === cell.key && column.visible);
+          if (!type) return /*#__PURE__*/(0, _jsxRuntime.jsx)("td", {
+            className: "p-2"
+          }, cellIndex);
+          if (personalized) return /*#__PURE__*/(0, _jsxRuntime.jsx)(Componet, {
+            value: cell.value,
+            id: cell.key == primaryKey ? cell.value : '',
+            extra: extra,
+            adicioalInfo: cell.link
           });
+          if (type === 'select') {
+            return /*#__PURE__*/(0, _jsxRuntime.jsx)("td", {
+              className: "p-2",
+              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputSelect.default, {
+                value: cell.value,
+                center: center,
+                disabled: !editable,
+                options: options,
+                onChange: e => {
+                  handleEdit(row, rowIndex, e.target.value, key, dataTretement);
+                }
+              }, cellIndex + ' ' + rowIndex)
+            }, cellIndex + ' ' + rowIndex);
+          }
+          return /*#__PURE__*/(0, _jsxRuntime.jsx)("td", {
+            className: "p-2",
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_Input.default, {
+              round: "none",
+              className: "py-4 w-full border-none text-sm ".concat(center ? 'text-center' : ''),
+              type: (0, _lodash.isEmpty)(type) ? 'text' : type,
+              value: (0, _lodash.isNil)(cell.value) ? '' : cell.value,
+              readOnly: !editable,
+              mask: (0, _masks.generateInputMask)(type, cell.value) || mask,
+              maskchar: maskChar ? maskChar : ' ',
+              onChange: e => {
+                handleEdit(row, rowIndex, e.target.value, key, dataTretement);
+              }
+            }, cellIndex + ' ' + rowIndex)
+          }, cellIndex + ' ' + rowIndex);
         })
-      }, i);
+      }, rowIndex);
     })
   });
 }
