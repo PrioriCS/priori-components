@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../Input/Input';
+import Input from './Input';
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from 'react-icons/md';
 
 export default function PasswordInput({ ...rest }) {
