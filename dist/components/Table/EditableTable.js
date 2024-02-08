@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = EditableTable;
 var _lodash = require("lodash");
-var _react = _interopRequireDefault(require("react"));
+var _react = require("react");
 var _EditableTableBody = _interopRequireDefault(require("./EditableTableBody"));
 var _EditableTableHead = _interopRequireDefault(require("./EditableTableHead"));
 var _TableToolbar = _interopRequireDefault(require("./TableToolbar"));
@@ -17,41 +17,30 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function EditableTable(_ref) {
   var {
-    columns = [],
-    data = [],
-    setData = _lodash.noop,
     className,
     pagination,
-    table = '',
-    editing = false,
-    setEditing = _lodash.noop,
-    sortDesc = false,
-    setSortDesc = _lodash.noop,
-    sortColumn = '',
-    setSortColumn = _lodash.noop,
-    onSearchChange = _lodash.noop,
-    searchKey = 'query',
-    withoutScroll = false,
+    height = 'default',
+    columns = [],
+    data = [],
+    changedData = [],
     onToolbarRight = {},
+    primaryKey = 'id',
+    table = '',
+    sortDesc = false,
+    searchKey = 'query',
+    sortColumn = '',
+    withoutScroll = false,
     withoutPagination = false,
     withoutSearch = false,
-    height = 'default',
-    route = _lodash.noop
+    route = _lodash.noop,
+    setChangedData = _lodash.noop,
+    setSortDesc = _lodash.noop,
+    setSortColumn = _lodash.noop,
+    onSearchChange = _lodash.noop
   } = _ref;
+  var [editing, setEditing] = (0, _react.useState)(false);
   function _onSave() {
-    var payload = {
-      data: []
-    };
-    data.forEach(d => {
-      var installation = {
-        id: d.id
-      };
-      d.data.forEach(obj => {
-        installation[obj.key] = obj.value;
-      });
-      payload.data.push(installation);
-    });
-    route(payload);
+    route(changedData);
     setEditing(false);
   }
   var availableHeights = {
@@ -89,8 +78,9 @@ function EditableTable(_ref) {
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_EditableTableBody.default, {
           columns: columns,
           data: data,
-          setData: setData,
-          setEditing: setEditing
+          setEditing: setEditing,
+          setChangedData: setChangedData,
+          primaryKey: primaryKey
         })]
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {

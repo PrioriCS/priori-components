@@ -1,18 +1,16 @@
 import { isEmpty, isFunction, isNil, noop } from 'lodash';
 import Input from '../Input/Input';
 import InputSelect from '../Input/InputSelect';
-import { useState } from 'react';
 import { generateInputMask } from '../../utilities/masks';
 
 export default function EditableTableBody({
   columns = [],
   data = [],
+  setData = noop,
   setEditing = noop,
   setChangedData = noop,
   primaryKey = 'id',
 }) {
-  const [tableData, setTableData] = useState(data);
-
   const rowToObj = (row) => {
     const obj = {};
     row.data.forEach((cell) => {
@@ -25,7 +23,7 @@ export default function EditableTableBody({
     if (isFunction(dataTretement)) newData = dataTretement(newData);
     setEditing(true);
     const newRow = row;
-    const newDataArray = [...tableData];
+    const newDataArray = [...data];
 
     newRow.data.find((cell) => cell.key === key).value = newData;
     newDataArray[rowIndex] = newRow;
@@ -33,11 +31,11 @@ export default function EditableTableBody({
     const newRowObj = rowToObj(newRow);
     setChangedData((changedData) => [...changedData.filter((row) => row[primaryKey] !== newRowObj[primaryKey]), newRowObj]);
 
-    setTableData(newDataArray);
+    setData(newDataArray);
   };
   return (
     <tbody className='font-normal text-base border-b border-gray-300 text-gray-500 w-full divide-y'>
-      {tableData.map((row, rowIndex) => {
+      {data.map((row, rowIndex) => {
         return (
           <tr className='w-full divide-x text-sm' key={rowIndex}>
             {row?.data?.map((cell, cellIndex) => {
@@ -55,8 +53,7 @@ export default function EditableTableBody({
                 dataTretement,
               } = columns.find((column) => column.key === cell.key && column.visible);
               if (!type) return <td className='p-2' key={cellIndex}></td>;
-              if (personalized)
-                return <Componet value={cell.value} id={cellIndex + ' ' + rowIndex} extra={extra} addicioalInfo={cell.link} />;
+              if (personalized) return <Componet value={cell.value} cellValues={cell} extra={extra} adicioalInfo={cell.link} />;
               if (type === 'select') {
                 return (
                   <td className='p-2' key={cellIndex + ' ' + rowIndex}>
