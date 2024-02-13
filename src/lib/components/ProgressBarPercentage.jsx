@@ -1,7 +1,7 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export default function ProgressBar({ percentage = '', complement = '', small = false, wide = false }) {
+export default function ProgressBarPercentage({ percentage = '', complement = '', small = false, wide = false }) {
   return (
     <div
       className={twMerge(
