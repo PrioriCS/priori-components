@@ -41,7 +41,7 @@
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files && npx tailwindcss -i ./src/css/input.css -o ./dist/tailwind.css",
     "test": "jest",
-    "watch:tailwind": "npx tailwindcss -i ./src/css/input.css -o ./dist/tailwind.css",
+    "watch:tailwind": "npx tailwindcss -i ./src/css/input.css -o ./dist/tailwind.css --watch",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test:debug": "ndb jest",
