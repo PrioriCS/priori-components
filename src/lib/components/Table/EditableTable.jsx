@@ -21,6 +21,7 @@ export default function EditableTable({
   withoutScroll = false,
   withoutPagination = false,
   withoutSearch = false,
+  separatedToolbar = false,
   route = noop,
   setChangedData = noop,
   setSortDesc = noop,
@@ -44,49 +45,56 @@ export default function EditableTable({
   const { Component, ...options } = onToolbarRight;
 
   return (
-    <div className={`shadow-md sm:rounded-lg w-full absolute ${className}`}>
-      {!withoutSearch && (
-        <TableToolbar
-          editable={true}
-          onSave={() => onSave()}
-          editing={editing}
-          radius='lg'
-          onSearchChange={onSearchChange}
-          searchKey={searchKey}>
-          {!isEmpty(onToolbarRight) && <Component options={options} />}
-        </TableToolbar>
-      )}
-      <div className={`max-w-full overflow-auto ${availableHeights[height]}`}>
-        <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
-          <EditableTableHead
-            columns={columns}
-            sortDesc={sortDesc}
-            setSortDesc={setSortDesc}
-            sortColumn={sortColumn}
-            setSortColumn={setSortColumn}
-          />
-          <EditableTableBody
-            columns={columns}
-            data={data}
-            setEditing={setEditing}
-            setChangedData={setChangedData}
-            primaryKey={primaryKey}
-          />
-        </table>
+    <>
+      <div className='pb-4'>
+        {!withoutSearch && (
+          <TableToolbar
+            editable={true}
+            onSave={() => onSave()}
+            editing={editing}
+            radius='md'
+            width='md'
+            separatedToolbar={separatedToolbar}
+            onSearchChange={onSearchChange}
+            searchKey={searchKey}>
+            {!isEmpty(onToolbarRight) && <Component options={options} />}
+          </TableToolbar>
+        )}
       </div>
-
-      <div>
-        <div className='bg-slate-50 p-5 hidden sm:block rounded-b-lg'>
-          {!withoutPagination && (
-            <Pagination
-              currentPage={pagination?.current_page}
-              pages={pagination?.last_page}
-              table={table}
-              canChangePage={!editing}
+      <div
+        className={`rounded-xl bg-white p-3.5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full ${className}`}>
+        <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
+          <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
+            <EditableTableHead
+              columns={columns}
+              sortDesc={sortDesc}
+              setSortDesc={setSortDesc}
+              sortColumn={sortColumn}
+              setSortColumn={setSortColumn}
             />
-          )}
+            <EditableTableBody
+              columns={columns}
+              data={data}
+              setEditing={setEditing}
+              setChangedData={setChangedData}
+              primaryKey={primaryKey}
+            />
+          </table>
+        </div>
+
+        <div>
+          <div className='bg-gray-200 p-5 hidden sm:block rounded-b-2xl'>
+            {!withoutPagination && (
+              <Pagination
+                currentPage={pagination?.current_page}
+                pages={pagination?.last_page}
+                table={table}
+                canChangePage={!editing}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

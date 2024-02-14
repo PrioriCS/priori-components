@@ -26,6 +26,7 @@ export default function TableToolbar({
   paddingX = 'default',
   paddingY = 'default',
   paddingBottom = 'none',
+  separatedToolbar = false,
 }) {
   //const { url } = usePage();
   //const { query = {} } = queryString.parseUrl(url);
@@ -77,13 +78,21 @@ export default function TableToolbar({
   return (
     <div
       className={twMerge(
-        'flex flex-row sm:border-b border-gray-300 sm:rounded-t-xl',
-        availableBackgrounds[background],
-        availablePaddingX[paddingX],
-        availablePaddingY[paddingY],
+        'flex flex-row ',
         paddingY === 'none' ? availablePaddingBottom[paddingBottom] : '',
         availableJustifyContents[justifyContent],
-        availableBorderRadius[radius]
+        availableBorderRadius[radius],
+        separatedToolbar
+          ? twMerge(
+              'px-4 py-6 rounded-2xl shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)]',
+              availableBackgrounds['white']
+            )
+          : twMerge(
+              'sm:border-b border-gray-300 sm:rounded-t-xl',
+              availableBackgrounds[background],
+              availablePaddingX[paddingX],
+              availablePaddingY[paddingY]
+            )
       )}>
       <div className={`flex w-full ${editable ? 'justify-between items-center' : 'justify-start'}`}>
         <div className={availableWidths[width]}>

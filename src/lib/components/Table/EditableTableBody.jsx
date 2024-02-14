@@ -34,7 +34,7 @@ export default function EditableTableBody({
     setData(newDataArray);
   };
   return (
-    <tbody className='font-normal text-base border-b border-gray-300 text-gray-500 w-full divide-y'>
+    <tbody className='font-normal text-base text-gray-500 w-full divide-y'>
       {data.map((row, rowIndex) => {
         return (
           <tr className='w-full divide-x text-sm' key={rowIndex}>
@@ -56,7 +56,8 @@ export default function EditableTableBody({
               if (personalized) return <Componet value={cell.value} cellValues={cell} extra={extra} adicioalInfo={cell.link} />;
               if (type === 'select') {
                 return (
-                  <td className='p-2' key={cellIndex + ' ' + rowIndex}>
+
+                  <td key={cellIndex + ' ' + rowIndex}>
                     <InputSelect
                       value={cell.value}
                       key={cellIndex + ' ' + rowIndex}
@@ -71,7 +72,7 @@ export default function EditableTableBody({
                 );
               }
               return (
-                <td className='p-2' key={cellIndex + ' ' + rowIndex}>
+                <td key={cellIndex + ' ' + rowIndex}>
                   <Input
                     round='none'
                     key={cellIndex + ' ' + rowIndex}
