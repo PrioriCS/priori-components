@@ -3,13 +3,16 @@ import React from 'react';
 import { MdFirstPage, MdLastPage, MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import PageButton from '../PageButton';
 
-export default function Pagination({ currentPage = 1, pages, table, canChangePage = true }) {
-  const maxButtonPages = 5;
+export default function Pagination({ currentPage = 1, pages, table, canChangePage = true, styleSchema = {} }) 
+{  const maxButtonPages = 5;
   const lastButton = currentPage < pages ? maxButtonPages - 1 : maxButtonPages;
 
+  const { paginationStyle = '' } = styleSchema;
+
+
   return (
-    <div className='flex justify-end rounded-md'>
-      <span className='flex items-center text-sm font-medium text-gray-500'>
+    <div className={`flex justify-end rounded-md ${paginationStyle}`}>
+            <span className='flex items-center text-sm font-medium text-gray-500'>
         Página {currentPage} de {pages}
       </span>
       <div className='flex ml-8 space-x-2'>

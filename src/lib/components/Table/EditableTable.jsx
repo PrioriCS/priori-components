@@ -27,7 +27,14 @@ export default function EditableTable({
   setSortDesc = noop,
   setSortColumn = noop,
   onSearchChange = noop,
+  colorSchema = {},
+  styleSchema = {},
+
 }) {
+
+  const { backgroundColor: paginationBgColor = 'bg-red-200', iconColor: paginationIconColor = 'bg-red-300' } = colorSchema;
+  const { paginationStyle = '' } = styleSchema;
+
   const [editing, setEditing] = useState(false);
 
   function onSave() {
@@ -56,7 +63,9 @@ export default function EditableTable({
             width='md'
             separatedToolbar={separatedToolbar}
             onSearchChange={onSearchChange}
-            searchKey={searchKey}>
+            searchKey={searchKey}
+          >
+
             {!isEmpty(onToolbarRight) && <Component options={options} />}
           </TableToolbar>
         )}
@@ -66,6 +75,8 @@ export default function EditableTable({
         <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
           <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
             <EditableTableHead
+              color={colorSchema}
+              style={styleSchema.headStyle}
               columns={columns}
               sortDesc={sortDesc}
               setSortDesc={setSortDesc}
@@ -86,10 +97,13 @@ export default function EditableTable({
           <div className='bg-gray-200 p-5 hidden sm:block rounded-b-2xl'>
             {!withoutPagination && (
               <Pagination
+
                 currentPage={pagination?.current_page}
                 pages={pagination?.last_page}
                 table={table}
                 canChangePage={!editing}
+                colorSchema={{ backgroundColor: paginationBgColor, iconColor: paginationIconColor }}
+                styleSchema={{ paginationStyle }}
               />
             )}
           </div>
