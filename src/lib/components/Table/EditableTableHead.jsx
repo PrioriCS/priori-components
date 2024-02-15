@@ -58,7 +58,9 @@ function SortButton({ sortDesc, onClick, isSorted, icon }) {
   );
 }
 
-export default function EditableTableHead({ columns = [], sortColumn, setSortColumn, setSortDesc, sortDesc }) {
+export default function EditableTableHead({ columns = [], sortColumn, setSortColumn, setSortDesc, sortDesc, colorSchema = '', styleSchema = '', }) {
+  console.log(colorSchema, styleSchema);
+
   const BoundSortButton = ({ columnKey, type }) => (
     <SortButton
       sortDesc={sortDesc}
@@ -82,7 +84,7 @@ export default function EditableTableHead({ columns = [], sortColumn, setSortCol
 
   return (
     <thead className='text-base border-b border-gray-300 text-gray-700 w-full divide-x sticky top-0 z-10'>
-      <tr className='w-full divide-x bg-gray-200 divide-gray-300'>
+      <tr className={`w-full divide-x bg-gray-200 divide-gray-300 ${colorSchema}`}>
         {columns.map((column, i) => {
           return (
             column.visible &&

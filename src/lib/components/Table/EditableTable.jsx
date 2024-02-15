@@ -27,12 +27,12 @@ export default function EditableTable({
   setSortDesc = noop,
   setSortColumn = noop,
   onSearchChange = noop,
-  colorSchema = {},
-  styleSchema = {},
+  colorSchema = '',
+  styleSchema = '',
 
 }) {
 
-  const { backgroundColor: paginationBgColor = 'bg-red-200', iconColor: paginationIconColor = 'bg-red-300' } = colorSchema;
+
   const { paginationStyle = '' } = styleSchema;
 
   const [editing, setEditing] = useState(false);
@@ -50,7 +50,7 @@ export default function EditableTable({
   };
 
   const { Component, ...options } = onToolbarRight;
-
+  const {paginationColor, tableToolbarColor, EditableTableHeadColor} = colorSchema;
   return (
     <>
       <div className='pb-4'>
@@ -64,6 +64,7 @@ export default function EditableTable({
             separatedToolbar={separatedToolbar}
             onSearchChange={onSearchChange}
             searchKey={searchKey}
+            colorSchema={tableToolbarColor}
           >
 
             {!isEmpty(onToolbarRight) && <Component options={options} />}
@@ -82,6 +83,7 @@ export default function EditableTable({
               setSortDesc={setSortDesc}
               sortColumn={sortColumn}
               setSortColumn={setSortColumn}
+              colorSchema={EditableTableHeadColor}
             />
             <EditableTableBody
               columns={columns}
@@ -102,8 +104,8 @@ export default function EditableTable({
                 pages={pagination?.last_page}
                 table={table}
                 canChangePage={!editing}
-                colorSchema={{ backgroundColor: paginationBgColor, iconColor: paginationIconColor }}
-                styleSchema={{ paginationStyle }}
+                colorSchema={paginationColor}
+                styleSchema={ paginationStyle }
               />
             )}
           </div>

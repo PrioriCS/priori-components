@@ -47,6 +47,7 @@ const ButtonTeste = () => {
   return <Button>Testando</Button>;
 };
 
+const colorSchema = {paginationColor: 'bg-red-900', tableToolbarColor: 'bg-red-900', EditableTableHeadColor: 'bg-red-900'};
 export const Primary = {
   args: {
     primary: true,
@@ -65,5 +66,7 @@ export const Primary = {
     withoutScroll: true,
     withoutPagination: false,
     separatedToolbar: true,
+    colorSchema: colorSchema,
+    styleSchema: 'rounded-md',
   },
 };

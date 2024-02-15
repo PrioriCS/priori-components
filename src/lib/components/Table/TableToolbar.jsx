@@ -27,7 +27,12 @@ export default function TableToolbar({
   paddingY = 'default',
   paddingBottom = 'none',
   separatedToolbar = false,
+  colorSchema = '',
+  styleSChema = '',
 }) {
+
+  console.log(colorSchema, styleSChema);
+
   //const { url } = usePage();
   //const { query = {} } = queryString.parseUrl(url);
   //const [search, setSearch] = React.useState(query[searchKey] || '');
@@ -94,7 +99,7 @@ export default function TableToolbar({
               availablePaddingY[paddingY]
             )
       )}>
-      <div className={`flex w-full ${editable ? 'justify-between items-center' : 'justify-start'}`}>
+      <div className={`flex w-full ${colorSchema} ${editable ? 'justify-between items-center' : 'justify-start'}`}>
         <div className={availableWidths[width]}>
           <Input
             //value={search}
