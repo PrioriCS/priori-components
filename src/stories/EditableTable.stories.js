@@ -48,6 +48,7 @@ const ButtonTeste = () => {
 };
 
 const colorSchema = {paginationColor: 'bg-red-900', tableToolbarColor: 'bg-red-900', EditableTableHeadColor: 'bg-red-900'};
+const styleSchema = {paginationStyle: 'rounded-full', tabletoolStyle: 'rounded-full', EditableTableHeadStyle: 'rounded-md'};
 export const Primary = {
   args: {
     primary: true,
@@ -67,6 +68,6 @@ export const Primary = {
     withoutPagination: false,
     separatedToolbar: true,
     colorSchema: colorSchema,
-    styleSchema: 'rounded-md',
+    styleSchema: styleSchema,
   },
 };

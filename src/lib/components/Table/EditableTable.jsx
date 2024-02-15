@@ -33,7 +33,6 @@ export default function EditableTable({
 }) {
 
 
-  const { paginationStyle = '' } = styleSchema;
 
   const [editing, setEditing] = useState(false);
 
@@ -50,6 +49,7 @@ export default function EditableTable({
   };
 
   const { Component, ...options } = onToolbarRight;
+  const { paginationStyle, tabletoolStyle, EditableTableHeadStyle } = styleSchema;
   const {paginationColor, tableToolbarColor, EditableTableHeadColor} = colorSchema;
   return (
     <>
@@ -65,8 +65,8 @@ export default function EditableTable({
             onSearchChange={onSearchChange}
             searchKey={searchKey}
             colorSchema={tableToolbarColor}
+            styleSChema={tabletoolStyle}
           >
-
             {!isEmpty(onToolbarRight) && <Component options={options} />}
           </TableToolbar>
         )}
@@ -84,6 +84,7 @@ export default function EditableTable({
               sortColumn={sortColumn}
               setSortColumn={setSortColumn}
               colorSchema={EditableTableHeadColor}
+              styleSChema={EditableTableHeadStyle}
             />
             <EditableTableBody
               columns={columns}

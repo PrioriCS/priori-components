@@ -99,7 +99,7 @@ export default function TableToolbar({
               availablePaddingY[paddingY]
             )
       )}>
-      <div className={`flex w-full ${colorSchema} ${editable ? 'justify-between items-center' : 'justify-start'}`}>
+      <div className={`flex w-full ${colorSchema} ${styleSChema} ${editable ? 'justify-between items-center' : 'justify-start'}`}>
         <div className={availableWidths[width]}>
           <Input
             //value={search}

@@ -10,7 +10,7 @@ export default function Pagination({ currentPage = 1, pages, table, canChangePag
   console.log(colorSchema, styleSChema);
 
   return (
-    <div className={`flex justify-end rounded-md ${colorSchema}`}>
+    <div className={`flex justify-end rounded-md ${colorSchema} ${styleSChema}`}>
       <span className='flex items-center text-sm font-medium text-gray-500'>
         Página {currentPage} de {pages}
       </span>

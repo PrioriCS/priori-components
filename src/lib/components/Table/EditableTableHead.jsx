@@ -84,7 +84,7 @@ export default function EditableTableHead({ columns = [], sortColumn, setSortCol
 
   return (
     <thead className='text-base border-b border-gray-300 text-gray-700 w-full divide-x sticky top-0 z-10'>
-      <tr className={`w-full divide-x bg-gray-200 divide-gray-300 ${colorSchema}`}>
+      <tr className={`w-full divide-x bg-gray-200 divide-gray-300 ${colorSchema} ${styleSchema}`}>
         {columns.map((column, i) => {
           return (
             column.visible &&
