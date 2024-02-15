@@ -65,7 +65,7 @@ export default function EditableTable({
             onSearchChange={onSearchChange}
             searchKey={searchKey}
             colorSchema={tableToolbarColor}
-            styleSChema={tabletoolStyle}
+            styleSchema={tabletoolStyle}
           >
             {!isEmpty(onToolbarRight) && <Component options={options} />}
           </TableToolbar>
@@ -84,7 +84,7 @@ export default function EditableTable({
               sortColumn={sortColumn}
               setSortColumn={setSortColumn}
               colorSchema={EditableTableHeadColor}
-              styleSChema={EditableTableHeadStyle}
+              styleSchema={EditableTableHeadStyle}
             />
             <EditableTableBody
               columns={columns}
@@ -97,7 +97,6 @@ export default function EditableTable({
         </div>
 
         <div>
-          <div className='bg-gray-200 p-5 hidden sm:block rounded-b-2xl'>
             {!withoutPagination && (
               <Pagination
 
@@ -105,11 +104,12 @@ export default function EditableTable({
                 pages={pagination?.last_page}
                 table={table}
                 canChangePage={!editing}
-                colorSchema={paginationColor}
                 styleSchema={ paginationStyle }
+
+                colorSchema={paginationColor}
               />
             )}
-          </div>
+        
         </div>
       </div>
     </>

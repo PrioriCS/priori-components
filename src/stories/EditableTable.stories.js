@@ -47,8 +47,8 @@ const ButtonTeste = () => {
   return <Button className='bg-blue-900'>Testando</Button>;
 };
 
-const colorSchema = {paginationColor: 'bg-red-900', tableToolbarColor: 'bg-red-900', EditableTableHeadColor: 'bg-red-900'};
-const styleSchema = {paginationStyle: 'rounded-full', tabletoolStyle: 'rounded-full', EditableTableHeadStyle: 'rounded-md'};
+const colorSchema = {paginationColor: 'bg-red-900 ', tableToolbarColor: 'bg-red-900 ', EditableTableHeadColor: 'bg-red-900 hover:bg-red-500 text-gray-700'};
+const styleSchema = {paginationStyle: 'p-5  rounded-b-2xl', tabletoolStyle: 'rounded-full', EditableTableHeadStyle: 'rounded-xl'};
 export const Primary = {
   args: {
     primary: true,

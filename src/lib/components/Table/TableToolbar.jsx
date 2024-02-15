@@ -28,10 +28,10 @@ export default function TableToolbar({
   paddingBottom = 'none',
   separatedToolbar = false,
   colorSchema = '',
-  styleSChema = '',
+  styleSchema = '',
 }) {
 
-  console.log(colorSchema, styleSChema);
+  console.log(colorSchema, styleSchema);
 
   //const { url } = usePage();
   //const { query = {} } = queryString.parseUrl(url);
@@ -91,7 +91,7 @@ export default function TableToolbar({
           ? twMerge(
               'px-4 py-6 rounded-2xl shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)]',
               colorSchema,
-              styleSChema
+              styleSchema
             )
           : twMerge(
               'sm:border-b border-gray-300 sm:rounded-t-xl',

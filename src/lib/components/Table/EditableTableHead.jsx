@@ -83,13 +83,13 @@ export default function EditableTableHead({ columns = [], sortColumn, setSortCol
   };
 
   return (
-    <thead className='text-base border-b border-gray-300 text-gray-700 w-full divide-x sticky top-0 z-10'>
+    <thead className={` text-base border-b border-gray-300  w-full divide-x sticky top-0 z-10`}>
       <tr className={`w-full divide-x bg-gray-200 divide-gray-300 ${colorSchema} ${styleSchema}`}>
         {columns.map((column, i) => {
           return (
             column.visible &&
             !column.disabled && (
-              <th className={`py-3.5 font-normal hover:bg-gray-100 ${column.style}`} key={i}>
+              <th className={`py-3.5 font-normal  ${column.style}`} key={i}>
                 <div className='flex items-center justify-center'>
                   {column.icon && <div className='mr-2'>{column.icon}</div>}
                   {column.title}
