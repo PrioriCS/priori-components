@@ -44,7 +44,7 @@ const pagination = {
 };
 
 const ButtonTeste = () => {
-  return <Button>Testando</Button>;
+  return <Button className='bg-blue-900'>Testando</Button>;
 };
 
 const colorSchema = {paginationColor: 'bg-red-900', tableToolbarColor: 'bg-red-900', EditableTableHeadColor: 'bg-red-900'};
