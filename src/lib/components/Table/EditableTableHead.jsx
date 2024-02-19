@@ -5,6 +5,7 @@ import { noop, update } from 'lodash';
 import Label from '../Label';
 import React from 'react';
 import { toggleSort } from '../../utilities/sort';
+import { twMerge } from 'tailwind-merge';
 
 function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = 'w-44', display = noop }) {
   return (
@@ -44,8 +45,9 @@ function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = '
   );
 }
 
-function SortButton({ sortDesc, onClick, isSorted, icon }) {
+function SortButton({ sortDesc, onClick, isSorted, icon, iconStyles = '', }) {
   let Icon = icon;
+
 
   if (isSorted) {
     Icon = sortDesc ? MdArrowDownward : MdArrowUpward;
@@ -53,20 +55,23 @@ function SortButton({ sortDesc, onClick, isSorted, icon }) {
 
   return (
     <button type='button' onClick={onClick}>
-      <Icon className='text-base ml-2 text-primary-600 rounded' />
+      <Icon className={twMerge(`${iconStyles}`)} />
     </button>
   );
 }
 
-export default function EditableTableHead({ columns = [], sortColumn, setSortColumn, setSortDesc, sortDesc, colorSchema = '', styleSchema = '', }) {
+export default function EditableTableHead({ columns = [], sortColumn, setSortColumn, setSortDesc, sortDesc, colorSchema = '', styleSchema = '', iconStyles = '', }) {
   console.log(colorSchema, styleSchema);
+  var { tableHeadIconStyles } = iconStyles;
 
   const BoundSortButton = ({ columnKey, type }) => (
     <SortButton
+      iconStyles={iconStyles}
       sortDesc={sortDesc}
       onClick={() => toggleSort(columnKey, setSortDesc, setSortColumn, sortColumn, sortDesc)}
       isSorted={sortColumn === columnKey}
       icon={type === 'date' || type === 'number' ? MdSwapVert : MdOutlineSortByAlpha}
+
     />
   );
 
@@ -83,8 +88,8 @@ export default function EditableTableHead({ columns = [], sortColumn, setSortCol
   };
 
   return (
-    <thead className={` text-base border-b border-gray-300  w-full divide-x sticky top-0 z-10`}>
-      <tr className={`w-full divide-x bg-gray-200 divide-gray-300 ${colorSchema} ${styleSchema}`}>
+    <thead className={` text-base  w-full divide-x sticky top-0 z-10`}>
+      <tr className={`w-full divide-x  ${colorSchema} ${styleSchema}`}>
         {columns.map((column, i) => {
           return (
             column.visible &&
@@ -93,7 +98,8 @@ export default function EditableTableHead({ columns = [], sortColumn, setSortCol
                 <div className='flex items-center justify-center'>
                   {column.icon && <div className='mr-2'>{column.icon}</div>}
                   {column.title}
-                  {column.sort && <BoundSortButton columnKey={column.key} type={column.type} />}
+                  {column.sort && <BoundSortButton iconStyles={tableHeadIconStyles}
+                    columnKey={column.key} type={column.type} />}
                   {column.dropdown && (
                     <DropdownItemTableHeader
                       array={column.dropdown.data}

@@ -11,7 +11,7 @@ export default function Pagination({ currentPage = 1, pages, table, canChangePag
 
   return (
     <div className={`flex justify-end rounded-md ${colorSchema} ${styleSchema}`}>
-      <span className='flex items-center text-sm font-medium text-gray-500'>
+      <span className='flex items-center text-sm font-medium '>
         Página {currentPage} de {pages}
       </span>
       <div className='flex ml-8 space-x-2'>

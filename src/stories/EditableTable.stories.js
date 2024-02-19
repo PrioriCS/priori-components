@@ -44,11 +44,28 @@ const pagination = {
 };
 
 const ButtonTeste = () => {
-  return <Button className='bg-blue-900'>Testando</Button>;
+  return <Button className='w-fit whitespace-nowrap bg-blue-100 border border-blue-700 text-blue-700 hover:bg-blue-800 hover:text-white'>Gerar Relatório Analítico</Button>;
 };
 
-const colorSchema = {paginationColor: 'bg-red-900 ', tableToolbarColor: 'bg-red-900 ', EditableTableHeadColor: 'bg-red-900 hover:bg-red-500 text-gray-700'};
-const styleSchema = {paginationStyle: 'p-5  rounded-b-2xl', tabletoolStyle: 'rounded-full', EditableTableHeadStyle: 'rounded-xl'};
+const VisionButtonTeste = () => {
+  return <Button className='w-fit whitespace-nowrap bg-yellow-500 border border-black text-black hover:bg-black hover:text-yellow-500'>Criar Visão</Button>;
+};
+
+const colorSchema = {paginationColor: 'bg-slate-100  ', tableToolbarColor: 'bg-slate-100 ', EditableTableHeadColor: 'bg-white text-gray-700', };
+const styleSchema = {paginationStyle: 'p-5  rounded-b-2xl text-slate-500', tabletoolStyle: 'rounded-md', EditableTableHeadStyle: 'rounded-xl', };
+
+const secondaryColorSchema = {
+  paginationColor: 'bg-black',
+  tableToolbarColor: 'bg-black',
+  EditableTableHeadColor: 'bg-black text-white',
+};
+
+const secondaryStyleSchema = {
+  paginationStyle: 'p-5 rounded-b-2xl text-yellow-500',
+  tabletoolStyle: 'rounded-md',
+  EditableTableHeadStyle: 'rounded-xl',
+};
+
 export const Primary = {
   args: {
     primary: true,
@@ -69,5 +86,31 @@ export const Primary = {
     separatedToolbar: true,
     colorSchema: colorSchema,
     styleSchema: styleSchema,
+    iconStyles: 'text-blue-600',
+  },
+};
+
+
+export const Secondary = {
+  args: {
+    primary: true,
+    columns: columns,
+    data: data,
+    pagination: pagination,
+    table: 'products',
+    withoutSearch: false,
+    onToolbarRight: { Component: VisionButtonTeste },
+    height: 'default',
+    changedData: [],
+    primaryKey: 'id',
+    sortDesc: false,
+    searchKey: 'query',
+    sortColumn: '',
+    withoutScroll: true,
+    withoutPagination: false,
+    separatedToolbar: true,
+    colorSchema: secondaryColorSchema, 
+    styleSchema: secondaryStyleSchema, 
+    iconStyles: 'text-yellow-500',
   },
 };

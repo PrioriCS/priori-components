@@ -29,6 +29,7 @@ export default function EditableTable({
   onSearchChange = noop,
   colorSchema = '',
   styleSchema = '',
+  iconStyles = '',
 
 }) {
 
@@ -85,6 +86,7 @@ export default function EditableTable({
               setSortColumn={setSortColumn}
               colorSchema={EditableTableHeadColor}
               styleSchema={EditableTableHeadStyle}
+              iconStyles={iconStyles}
             />
             <EditableTableBody
               columns={columns}
