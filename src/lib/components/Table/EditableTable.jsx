@@ -30,6 +30,7 @@ export default function EditableTable({
   colorSchema = '',
   styleSchema = '',
   iconStyles = '',
+  separatedPagination = false,
 
 }) {
 
@@ -72,48 +73,83 @@ export default function EditableTable({
           </TableToolbar>
         )}
       </div>
-      <div
-        className={`rounded-xl bg-white p-3.5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full ${className}`}>
-        <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
-          <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
-            <EditableTableHead
-              color={colorSchema}
-              style={styleSchema.headStyle}
-              columns={columns}
-              sortDesc={sortDesc}
-              setSortDesc={setSortDesc}
-              sortColumn={sortColumn}
-              setSortColumn={setSortColumn}
-              colorSchema={EditableTableHeadColor}
-              styleSchema={EditableTableHeadStyle}
-              iconStyles={iconStyles}
-            />
-            <EditableTableBody
-              columns={columns}
-              data={data}
-              setEditing={setEditing}
-              setChangedData={setChangedData}
-              primaryKey={primaryKey}
-            />
-          </table>
-        </div>
-
-        <div>
-            {!withoutPagination && (
-              <Pagination
-
-                currentPage={pagination?.current_page}
-                pages={pagination?.last_page}
-                table={table}
-                canChangePage={!editing}
-                styleSchema={ paginationStyle }
-
-                colorSchema={paginationColor}
+      {separatedPagination ? (
+        <>
+         
+          <div className={`rounded-xl bg-white p-3.5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full ${className}`}>
+            <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
+              <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
+                <EditableTableHead
+                  color={colorSchema}
+                  style={styleSchema.headStyle}
+                  columns={columns}
+                  sortDesc={sortDesc}
+                  setSortDesc={setSortDesc}
+                  sortColumn={sortColumn}
+                  setSortColumn={setSortColumn}
+                  colorSchema={EditableTableHeadColor}
+                  styleSchema={EditableTableHeadStyle}
+                  iconStyles={iconStyles}
+                />
+                <EditableTableBody
+                  columns={columns}
+                  data={data}
+                  setEditing={setEditing}
+                  setChangedData={setChangedData}
+                  primaryKey={primaryKey}
+                />
+              </table>
+            </div>
+          </div>
+          <Pagination
+            currentPage={pagination?.current_page}
+            pages={pagination?.last_page}
+            table={table}
+            canChangePage={!editing}
+            styleSchema={paginationStyle}
+            separatedPagination={separatedPagination}
+            colorSchema={paginationColor}
+          />
+        </>
+      ) : (
+        <div className={`rounded-xl bg-white p-3.5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full ${className}`}>
+          <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
+            <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
+              <EditableTableHead
+                color={colorSchema}
+                style={styleSchema.headStyle}
+                columns={columns}
+                sortDesc={sortDesc}
+                setSortDesc={setSortDesc}
+                sortColumn={sortColumn}
+                setSortColumn={setSortColumn}
+                colorSchema={EditableTableHeadColor}
+                styleSchema={EditableTableHeadStyle}
+                iconStyles={iconStyles}
               />
-            )}
-        
+              <EditableTableBody
+                columns={columns}
+                data={data}
+                setEditing={setEditing}
+                setChangedData={setChangedData}
+                primaryKey={primaryKey}
+              />
+            </table>
+          </div>
+          {!withoutPagination && (
+            <Pagination
+              currentPage={pagination?.current_page}
+              pages={pagination?.last_page}
+              table={table}
+              canChangePage={!editing}
+              styleSchema={paginationStyle}
+              separatedPagination={separatedPagination}
+              colorSchema={paginationColor}
+            />
+          )}
         </div>
-      </div>
+      )}
     </>
   );
+  
 }

@@ -87,6 +87,7 @@ export const Primary = {
     colorSchema: colorSchema,
     styleSchema: styleSchema,
     iconStyles: 'text-blue-600',
+    separatedPagination: true,
   },
 };
 
