@@ -34,7 +34,7 @@ export default function EditableTableBody({
     setData(newDataArray);
   };
   return (
-    <tbody className='font-normal text-base text-gray-500 w-full divide-y'>
+    <tbody className='font-normal text-base text-gray-500 w-full divide-y bg-slate-50'>
       {data.map((row, rowIndex) => {
         return (
           <tr className='w-full divide-x text-sm ' key={rowIndex}>
@@ -52,14 +52,12 @@ export default function EditableTableBody({
                 maskChar,
                 dataTretement,
               } = columns.find((column) => column.key === cell.key && column.visible);
-              if (!type) return <td className='p-2 ' key={cellIndex}></td>;
+              if (!type) return <td className='p-2' key={cellIndex}></td>;
               if (personalized) return <Componet value={cell.value} cellValues={cell} extra={extra} adicioalInfo={cell.link} />;
               if (type === 'select') {
                 return (
-
                   <td key={cellIndex + ' ' + rowIndex}>
                     <InputSelect
-                      
                       value={cell.value}
                       key={cellIndex + ' ' + rowIndex}
                       center={center}

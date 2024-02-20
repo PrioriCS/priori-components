@@ -30,7 +30,6 @@ export default function TableToolbar({
   colorSchema = '',
   styleSchema = '',
 }) {
-
   console.log(colorSchema, styleSchema);
 
   //const { url } = usePage();
@@ -87,12 +86,10 @@ export default function TableToolbar({
         paddingY === 'none' ? availablePaddingBottom[paddingBottom] : '',
         availableJustifyContents[justifyContent],
         availableBorderRadius[radius],
+        colorSchema,
+        styleSchema,
         separatedToolbar
-          ? twMerge(
-              'px-4 py-6 rounded-2xl shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)]',
-              colorSchema,
-              styleSchema
-            )
+          ? twMerge('px-4 py-6 rounded-2xl shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)]')
           : twMerge(
               'sm:border-b border-gray-300 sm:rounded-t-xl',
               availableBackgrounds[background],

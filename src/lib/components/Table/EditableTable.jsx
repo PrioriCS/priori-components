@@ -4,6 +4,7 @@ import EditableTableBody from './EditableTableBody';
 import EditableTableHead from './EditableTableHead';
 import TableToolbar from './TableToolbar';
 import Pagination from './Pagination';
+import { twMerge } from 'tailwind-merge';
 
 export default function EditableTable({
   className,
@@ -31,11 +32,7 @@ export default function EditableTable({
   styleSchema = '',
   iconStyles = '',
   separatedPagination = false,
-
 }) {
-
-
-
   const [editing, setEditing] = useState(false);
 
   function onSave() {
@@ -51,11 +48,16 @@ export default function EditableTable({
   };
 
   const { Component, ...options } = onToolbarRight;
-  const { paginationStyle, tabletoolStyle, EditableTableHeadStyle } = styleSchema;
-  const {paginationColor, tableToolbarColor, EditableTableHeadColor} = colorSchema;
+  const { paginationStyle, tabletoolStyle, headStyle } = styleSchema;
+  const { paginationColor, tableToolbarColor, headColor } = colorSchema;
   return (
-    <>
-      <div className='pb-4'>
+    <div
+      className={twMerge(
+        'shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full',
+        className,
+        separatedToolbar || separatedPagination ? 'rounded-xl p-3.5 bg-white' : ''
+      )}>
+      <div className={separatedPagination ? 'pb-4' : ''}>
         {!withoutSearch && (
           <TableToolbar
             editable={true}
@@ -67,89 +69,45 @@ export default function EditableTable({
             onSearchChange={onSearchChange}
             searchKey={searchKey}
             colorSchema={tableToolbarColor}
-            styleSchema={tabletoolStyle}
-          >
+            styleSchema={tabletoolStyle}>
             {!isEmpty(onToolbarRight) && <Component options={options} />}
           </TableToolbar>
         )}
       </div>
-      {separatedPagination ? (
-        <>
-         
-          <div className={`rounded-xl bg-white p-3.5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full ${className}`}>
-            <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
-              <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
-                <EditableTableHead
-                  color={colorSchema}
-                  style={styleSchema.headStyle}
-                  columns={columns}
-                  sortDesc={sortDesc}
-                  setSortDesc={setSortDesc}
-                  sortColumn={sortColumn}
-                  setSortColumn={setSortColumn}
-                  colorSchema={EditableTableHeadColor}
-                  styleSchema={EditableTableHeadStyle}
-                  iconStyles={iconStyles}
-                />
-                <EditableTableBody
-                  columns={columns}
-                  data={data}
-                  setEditing={setEditing}
-                  setChangedData={setChangedData}
-                  primaryKey={primaryKey}
-                />
-              </table>
-            </div>
-          </div>
-          <Pagination
-            currentPage={pagination?.current_page}
-            pages={pagination?.last_page}
-            table={table}
-            canChangePage={!editing}
-            styleSchema={paginationStyle}
-            separatedPagination={separatedPagination}
-            colorSchema={paginationColor}
+      <div className={twMerge('max-w-full overflow-auto', separatedToolbar ? headStyle : '', availableHeights[height])}>
+        <table className={twMerge('overflow-auto', withoutScroll ? 'w-full' : 'w-screen')}>
+          <EditableTableHead
+            color={colorSchema}
+            style={styleSchema}
+            columns={columns}
+            sortDesc={sortDesc}
+            setSortDesc={setSortDesc}
+            sortColumn={sortColumn}
+            setSortColumn={setSortColumn}
+            colorSchema={headColor}
+            styleSchema={headStyle}
+            iconStyles={iconStyles}
           />
-        </>
-      ) : (
-        <div className={`rounded-xl bg-white p-3.5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full ${className}`}>
-          <div className={`max-w-full rounded-t-xl overflow-auto ${availableHeights[height]}`}>
-            <table className={`overflow-auto ${withoutScroll ? 'w-full' : 'w-screen'}`}>
-              <EditableTableHead
-                color={colorSchema}
-                style={styleSchema.headStyle}
-                columns={columns}
-                sortDesc={sortDesc}
-                setSortDesc={setSortDesc}
-                sortColumn={sortColumn}
-                setSortColumn={setSortColumn}
-                colorSchema={EditableTableHeadColor}
-                styleSchema={EditableTableHeadStyle}
-                iconStyles={iconStyles}
-              />
-              <EditableTableBody
-                columns={columns}
-                data={data}
-                setEditing={setEditing}
-                setChangedData={setChangedData}
-                primaryKey={primaryKey}
-              />
-            </table>
-          </div>
-          {!withoutPagination && (
-            <Pagination
-              currentPage={pagination?.current_page}
-              pages={pagination?.last_page}
-              table={table}
-              canChangePage={!editing}
-              styleSchema={paginationStyle}
-              separatedPagination={separatedPagination}
-              colorSchema={paginationColor}
-            />
-          )}
-        </div>
+          <EditableTableBody
+            columns={columns}
+            data={data}
+            setEditing={setEditing}
+            setChangedData={setChangedData}
+            primaryKey={primaryKey}
+          />
+        </table>
+      </div>
+      {!withoutPagination && (
+        <Pagination
+          currentPage={pagination?.current_page}
+          pages={pagination?.last_page}
+          table={table}
+          canChangePage={!editing}
+          styleSchema={paginationStyle}
+          separatedPagination={separatedPagination}
+          colorSchema={paginationColor}
+        />
       )}
-    </>
+    </div>
   );
-  
 }

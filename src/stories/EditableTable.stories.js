@@ -44,26 +44,42 @@ const pagination = {
 };
 
 const ButtonTeste = () => {
-  return <Button className='w-fit whitespace-nowrap bg-blue-100 border border-blue-700 text-blue-700 hover:bg-blue-800 hover:text-white'>Gerar Relatório Analítico</Button>;
+  return (
+    <Button className='w-fit whitespace-nowrap bg-blue-100 border border-blue-700 text-blue-700 hover:bg-blue-800 hover:text-white'>
+      Gerar Relatório Analítico
+    </Button>
+  );
 };
 
 const VisionButtonTeste = () => {
-  return <Button className='w-fit whitespace-nowrap bg-yellow-500 border border-black text-black hover:bg-black hover:text-yellow-500'>Criar Visão</Button>;
+  return (
+    <Button className='w-fit whitespace-nowrap bg-yellow-500 border border-black text-black hover:bg-black hover:text-yellow-500'>
+      Criar Visão
+    </Button>
+  );
 };
 
-const colorSchema = {paginationColor: 'bg-slate-100  ', tableToolbarColor: 'bg-slate-100 ', EditableTableHeadColor: 'bg-white text-gray-700', };
-const styleSchema = {paginationStyle: 'p-5  rounded-b-2xl text-slate-500', tabletoolStyle: 'rounded-md', EditableTableHeadStyle: 'rounded-xl', };
+const colorSchema = {
+  paginationColor: 'bg-slate-50',
+  tableToolbarColor: 'bg-slate-100 ',
+  headColor: 'bg-slate-50 text-gray-700',
+};
+const styleSchema = {
+  paginationStyle: 'p-5 rounded-b-xl text-slate-500',
+  tabletoolStyle: '',
+  headStyle: 'rounded-xl',
+};
 
 const secondaryColorSchema = {
   paginationColor: 'bg-black',
   tableToolbarColor: 'bg-black',
-  EditableTableHeadColor: 'bg-black text-white',
+  headColor: 'bg-black text-white',
 };
 
 const secondaryStyleSchema = {
-  paginationStyle: 'p-5 rounded-b-2xl text-yellow-500',
+  paginationStyle: 'p-5 rounded-xl text-yellow-500',
   tabletoolStyle: 'rounded-md',
-  EditableTableHeadStyle: 'rounded-xl',
+  headStyle: 'rounded-xl',
 };
 
 export const Primary = {
@@ -83,14 +99,11 @@ export const Primary = {
     sortColumn: '',
     withoutScroll: true,
     withoutPagination: false,
-    separatedToolbar: true,
     colorSchema: colorSchema,
     styleSchema: styleSchema,
     iconStyles: 'text-blue-600',
-    separatedPagination: true,
   },
 };
-
 
 export const Secondary = {
   args: {
@@ -110,8 +123,9 @@ export const Secondary = {
     withoutScroll: true,
     withoutPagination: false,
     separatedToolbar: true,
-    colorSchema: secondaryColorSchema, 
-    styleSchema: secondaryStyleSchema, 
+    separatedPagination: true,
+    colorSchema: secondaryColorSchema,
+    styleSchema: secondaryStyleSchema,
     iconStyles: 'text-yellow-500',
   },
 };
