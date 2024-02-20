@@ -1,4 +1,4 @@
-import Button  from "../lib/components/Button";
+import Button from '../lib/components/Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
@@ -12,8 +12,8 @@ export const Primary = {
     primary: true,
     label: 'Button',
     wide: true,
-    children: "asdasd",
-    type: "button",
-    className: "bg-yellow-700",
+    children: 'asdasd',
+    type: 'button',
+    className: 'bg-yellow-700',
   },
 };

@@ -34,10 +34,10 @@ export default function EditableTableBody({
     setData(newDataArray);
   };
   return (
-    <tbody className='font-normal text-base border-b border-gray-300 text-gray-500 w-full divide-y'>
+    <tbody className='font-normal text-base text-gray-500 w-full divide-y bg-slate-50'>
       {data.map((row, rowIndex) => {
         return (
-          <tr className='w-full divide-x text-sm' key={rowIndex}>
+          <tr className='w-full divide-x text-sm ' key={rowIndex}>
             {row?.data?.map((cell, cellIndex) => {
               const {
                 component: Componet,
@@ -56,7 +56,7 @@ export default function EditableTableBody({
               if (personalized) return <Componet value={cell.value} cellValues={cell} extra={extra} adicioalInfo={cell.link} />;
               if (type === 'select') {
                 return (
-                  <td className='p-2' key={cellIndex + ' ' + rowIndex}>
+                  <td key={cellIndex + ' ' + rowIndex}>
                     <InputSelect
                       value={cell.value}
                       key={cellIndex + ' ' + rowIndex}
@@ -71,11 +71,11 @@ export default function EditableTableBody({
                 );
               }
               return (
-                <td className='p-2' key={cellIndex + ' ' + rowIndex}>
+                <td key={cellIndex + ' ' + rowIndex}>
                   <Input
                     round='none'
                     key={cellIndex + ' ' + rowIndex}
-                    className={`py-4 w-full border-none text-sm ${center ? 'text-center' : ''}`}
+                    className={`py-4 w-full border-none text-sm  ${center ? 'text-center' : ''}`} //linha para estilizar.
                     type={isEmpty(type) ? 'text' : type}
                     value={isNil(cell.value) ? '' : cell.value}
                     readOnly={!editable}

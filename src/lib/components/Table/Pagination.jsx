@@ -2,14 +2,29 @@ import { setCurrentPage } from '../../utilities/sort';
 import React from 'react';
 import { MdFirstPage, MdLastPage, MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import PageButton from '../PageButton';
+import { twMerge } from 'tailwind-merge';
 
-export default function Pagination({ currentPage = 1, pages, table, canChangePage = true }) {
+export default function Pagination({
+  currentPage = 1,
+  pages,
+  table,
+  canChangePage = true,
+  colorSchema = '',
+  styleSchema = '',
+  separatedPagination = false,
+}) {
   const maxButtonPages = 5;
   const lastButton = currentPage < pages ? maxButtonPages - 1 : maxButtonPages;
 
   return (
-    <div className='flex justify-end rounded-md'>
-      <span className='flex items-center text-sm font-medium text-gray-500'>
+    <div
+      className={twMerge(
+        'flex justify-end',
+        colorSchema,
+        styleSchema,
+        separatedPagination ? 'mt-5 shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)]' : 'rounded-b-2xl'
+      )}>
+      <span className='flex items-center text-sm font-medium '>
         Página {currentPage} de {pages}
       </span>
       <div className='flex ml-8 space-x-2'>

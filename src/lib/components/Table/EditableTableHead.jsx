@@ -5,6 +5,7 @@ import { noop, update } from 'lodash';
 import Label from '../Label';
 import React from 'react';
 import { toggleSort } from '../../utilities/sort';
+import { twMerge } from 'tailwind-merge';
 
 function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = 'w-44', display = noop }) {
   return (
@@ -44,7 +45,7 @@ function DropdownItemTableHeader({ array, onItemChange, defineBgColor, width = '
   );
 }
 
-function SortButton({ sortDesc, onClick, isSorted, icon }) {
+function SortButton({ sortDesc, onClick, isSorted, icon, iconStyles = '' }) {
   let Icon = icon;
 
   if (isSorted) {
@@ -52,15 +53,27 @@ function SortButton({ sortDesc, onClick, isSorted, icon }) {
   }
 
   return (
-    <button type='button' onClick={onClick}>
-      <Icon className='text-base ml-2 text-primary-600 rounded' />
+    <button type='button' onClick={onClick} className='ml-2'>
+      <Icon className={twMerge(iconStyles)} />
     </button>
   );
 }
 
-export default function EditableTableHead({ columns = [], sortColumn, setSortColumn, setSortDesc, sortDesc }) {
+export default function EditableTableHead({
+  columns = [],
+  sortColumn,
+  setSortColumn,
+  setSortDesc,
+  sortDesc,
+  colorSchema = '',
+  styleSchema = '',
+  iconStyles = '',
+}) {
+  var { tableHeadIconStyles } = iconStyles;
+
   const BoundSortButton = ({ columnKey, type }) => (
     <SortButton
+      iconStyles={iconStyles}
       sortDesc={sortDesc}
       onClick={() => toggleSort(columnKey, setSortDesc, setSortColumn, sortColumn, sortDesc)}
       isSorted={sortColumn === columnKey}
@@ -81,17 +94,19 @@ export default function EditableTableHead({ columns = [], sortColumn, setSortCol
   };
 
   return (
-    <thead className='text-base border-b border-gray-300 text-gray-700 w-full divide-x sticky top-0 z-10'>
-      <tr className='w-full divide-x bg-slate-50 '>
+    <thead className='text-base border-b w-full divide-x sticky top-0 z-10'>
+      <tr className={twMerge('w-full divide-x', colorSchema, styleSchema)}>
         {columns.map((column, i) => {
           return (
             column.visible &&
             !column.disabled && (
-              <th className={`py-3.5 font-normal hover:bg-primary-50 ${column.style}`} key={i}>
+              <th className={`py-3.5 font-normal  ${column.style}`} key={i}>
                 <div className='flex items-center justify-center'>
                   {column.icon && <div className='mr-2'>{column.icon}</div>}
                   {column.title}
-                  {column.sort && <BoundSortButton columnKey={column.key} type={column.type} />}
+                  {column.sort && (
+                    <BoundSortButton iconStyles={tableHeadIconStyles} columnKey={column.key} type={column.type} />
+                  )}
                   {column.dropdown && (
                     <DropdownItemTableHeader
                       array={column.dropdown.data}
