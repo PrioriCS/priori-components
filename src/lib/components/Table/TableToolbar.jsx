@@ -30,8 +30,6 @@ export default function TableToolbar({
   colorSchema = '',
   styleSchema = '',
 }) {
-  console.log(colorSchema, styleSchema);
-
   //const { url } = usePage();
   //const { query = {} } = queryString.parseUrl(url);
   //const [search, setSearch] = React.useState(query[searchKey] || '');
