@@ -36,6 +36,102 @@ const data = [
       { key: 'quote.client', value: 'Bernardo Kowalsky' },
     ],
   },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
+  {
+    data: [
+      { key: 'quote.source_id', value: 1 },
+      { key: 'quote.client', value: 'Bernardo Kowalsky' },
+    ],
+  },
 ];
 
 const pagination = {
@@ -121,7 +217,7 @@ export const Secondary = {
     searchKey: 'query',
     sortColumn: '',
     withoutScroll: true,
-    withoutPagination: false,
+    withoutPagination: true,
     separatedToolbar: true,
     separatedPagination: true,
     colorSchema: secondaryColorSchema,

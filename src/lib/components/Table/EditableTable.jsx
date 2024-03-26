@@ -32,6 +32,7 @@ export default function EditableTable({
   styleSchema = '',
   iconStyles = '',
   separatedPagination = false,
+  toolbarBg = 'slate',
 }) {
   const [editing, setEditing] = useState(false);
 
@@ -55,9 +56,9 @@ export default function EditableTable({
       className={twMerge(
         'shadow-gray-600 drop-shadow-[0_0_8px_rgba(30,64,175,0.15)] w-full',
         className,
-        separatedToolbar || separatedPagination ? 'rounded-xl p-3.5 bg-white' : ''
+        separatedToolbar || separatedPagination ? 'rounded-xl p-3.5' : ''
       )}>
-      <div className={separatedPagination ? 'pb-4' : ''}>
+      <div className={separatedToolbar ? 'pb-4' : ''}>
         {!withoutSearch && (
           <TableToolbar
             editable={true}
@@ -67,6 +68,7 @@ export default function EditableTable({
             width='md'
             separatedToolbar={separatedToolbar}
             onSearchChange={onSearchChange}
+            background={toolbarBg}
             searchKey={searchKey}
             colorSchema={tableToolbarColor}
             styleSchema={tabletoolStyle}>
